@@ -2,33 +2,33 @@ import { useEffect, useRef } from 'react';
 import { EVENT } from '../config.js';
 import './Schedule.css';
 
-// Preliminary agenda: the deck's one-day run of show, spread over both days.
+// Programação preliminar: a jornada de um dia do deck, distribuída em dois dias.
 const DAYS = [
   {
-    weekday: 'Sat',
+    weekday: 'Sáb',
     day: '07',
-    month: 'November, 2026',
-    theme: 'Kickoff & build',
+    month: 'novembro de 2026',
+    theme: 'Abertura & construção',
     items: [
-      ['08:30', 'Doors open & check-in', 'Registration and badge pickup for all participants.'],
-      ['09:00', 'Opening & challenge briefing', 'Final presentation of the challenge and the hackathon rules.'],
-      ['10:00', 'Hacking begins', 'Teams officially start building their projects.'],
-      ['13:00', 'Lunch & networking', 'Break for lunch and networking with participants and partners.'],
-      ['14:00', 'Mentorship rounds', 'Mentors help teams develop and sharpen their solutions.'],
-      ['17:00', 'End of day one', 'Doors close. Rest up, there is more to ship tomorrow.'],
+      ['08:30', 'Abertura das portas & check-in', 'Credenciamento e entrega de crachás para todos os participantes.'],
+      ['09:00', 'Abertura & briefing do desafio', 'Apresentação final do desafio e das regras do hackathon.'],
+      ['10:00', 'Início do hacking', 'Os times começam oficialmente a construir seus projetos.'],
+      ['13:00', 'Almoço & networking', 'Pausa para almoço e networking com participantes e parceiros.'],
+      ['14:00', 'Rodadas de mentoria', 'Mentores ajudam os times a desenvolver e refinar suas soluções.'],
+      ['17:00', 'Fim do primeiro dia', 'Portas fecham. Descanse, amanhã tem mais construção.'],
     ],
   },
   {
-    weekday: 'Sun',
+    weekday: 'Dom',
     day: '08',
-    month: 'November, 2026',
-    theme: 'Ship & Demo Day',
+    month: 'novembro de 2026',
+    theme: 'Finalizar & Demo Day',
     items: [
-      ['09:00', 'Hacking resumes', 'Back to building for the final stretch.'],
-      ['13:00', 'Lunch & networking', 'Refuel and meet the partners before the demos.'],
-      ['14:00', 'Final mentorship round', 'Last feedback from mentors before you present.'],
-      ['16:00', 'Demo Day', 'Teams present what they built, live, to the judges.'],
-      ['17:00', 'Awards & closing', 'Winners are announced and the event officially wraps up.'],
+      ['09:00', 'Retomada do hacking', 'De volta à construção para a reta final.'],
+      ['13:00', 'Almoço & networking', 'Recarregue as energias e conheça os parceiros antes das demos.'],
+      ['14:00', 'Rodada final de mentoria', 'Último feedback dos mentores antes de apresentar.'],
+      ['16:00', 'Demo Day', 'Os times apresentam ao vivo o que construíram para o júri.'],
+      ['17:00', 'Premiação & encerramento', 'Anúncio dos vencedores e encerramento oficial do evento.'],
     ],
   },
 ];
@@ -67,13 +67,13 @@ export default function Schedule() {
       <div className="container">
         <div className="section-head schedule__head">
           <p className="eyebrow" data-reveal>
-            05 / Schedule
+            05 / Programação
           </p>
           <h2 id="schedule-title" className="title" data-reveal style={{ '--d': '80ms' }}>
-            Two days to <em>ship</em>.
+            Dois dias para <em>criar</em>.
           </h2>
           <p className="schedule__note" data-reveal style={{ '--d': '160ms' }}>
-            Preliminary schedule, subject to change · {EVENT.venue}, {EVENT.city}
+            Programação preliminar, sujeita a alterações · {EVENT.venue}, {EVENT.city}
           </p>
         </div>
 

@@ -1,8 +1,8 @@
 import { EVENT } from '../config.js';
 import './Marquee.css';
 
-const TOP = ['AI Agents', 'Build something real', `${EVENT.builders} builders`, EVENT.dates, `${EVENT.venue} · ${EVENT.city}`];
-const BOTTOM = ['Recife × João Pessoa', 'Plan', 'Execute', 'Iterate', 'Demo Day', 'Mentorship', 'Awards'];
+const TOP = ['AI Agents', 'Construa algo real', `${EVENT.builders}\u00a0builders`, EVENT.dates, `${EVENT.venue} · ${EVENT.city}`];
+const BOTTOM = ['Recife × João Pessoa', 'Planejar', 'Executar', 'Iterar', 'Demo Day', 'Mentoria', 'Prêmios'];
 
 function Star() {
   return (

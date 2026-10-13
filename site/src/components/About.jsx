@@ -7,10 +7,10 @@ import ScrambleText from './ScrambleText.jsx';
 import './About.css';
 
 const STATS = [
-  { value: EVENT.builders, label: 'Builders selected' },
-  { value: '8–16h', label: 'Of intensive hacking' },
-  { value: '2', label: `Days at ${EVENT.venue}` },
-  { value: '1', label: 'Demo Day with live pitches' },
+  { value: EVENT.builders, label: 'Builders selecionados' },
+  { value: '8–16h', label: 'De hacking intensivo' },
+  { value: '2', label: `Dias no ${EVENT.venue}` },
+  { value: '1', label: 'Demo Day com pitches ao vivo' },
 ];
 
 export default function About() {
@@ -25,26 +25,26 @@ export default function About() {
         <div className="about__grid">
           <div className="about__text">
             <p className="eyebrow" data-reveal>
-              01 / About
+              01 / Sobre
             </p>
             <h2 id="about-title" className="title" data-reveal style={{ '--d': '80ms' }}>
-              Building the <em>AI Agents ecosystem</em> of the Northeast.
+              Construindo o <em>ecossistema de AI Agents</em> do Nordeste.
             </h2>
             <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-              <strong>Converge Challenge</strong> is an in-person hackathon that brings together builders:{' '}
-              <strong>AI talent, engineers, designers and founders</strong> creating real solutions with{' '}
-              <strong>AI Agents</strong>. It connects the academic and tech talent of <strong>Recife</strong> and{' '}
-              <strong>João Pessoa</strong> to the national AI ecosystem.
+              O <strong>Converge Challenge</strong> é um hackathon presencial que reúne builders:{' '}
+              <strong>talentos de IA, engenheiros, designers e fundadores</strong> criando soluções reais com{' '}
+              <strong>AI Agents</strong>. Conecta o talento acadêmico e tech de <strong>Recife</strong> e{' '}
+              <strong>João Pessoa</strong> ao ecossistema nacional de IA.
             </p>
             <p className="about__mission" data-reveal style={{ '--d': '240ms' }}>
-              We want to <span className="hl">build a brand</span> and take this event to other hubs across the
-              region, encouraging <span className="hl">Northeast talent to solve real problems in large markets</span>
+              Queremos <span className="hl">construir uma marca</span> e levar este evento a outros polos da região,
+              incentivando <span className="hl">talentos do Nordeste a resolver problemas reais de grandes mercados</span>
               .
             </p>
           </div>
 
           <div className="about__words" ref={wordsRef} data-reveal="left" style={{ '--d': '200ms' }}>
-            {['Build.', 'Ship.', 'Converge.'].map((w, i) => (
+            {['Construir.', 'Criar.', 'Convergir.'].map((w, i) => (
               <ScrambleText key={w} text={w} as="span" play={wordsIn} delay={i * 220} className="about__word" />
             ))}
           </div>

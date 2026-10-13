@@ -16,42 +16,42 @@ export default function Register() {
       <div className="container register__grid">
         <div className="register__text">
           <p className="eyebrow" data-reveal>
-            09 / Register
+            09 / Inscrição
           </p>
           <h2 id="register-title" className="register__title" data-reveal style={{ '--d': '80ms' }}>
-            Ready to <em>converge</em>?
+            Pronto para <em>convergir</em>?
           </h2>
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-            Applications are open on Luma. <strong>{EVENT.builders} builders</strong> will be selected to spend two
-            days building AI agents that do real work.
+            Inscrições abertas no Luma. <strong>{EVENT.builders}&nbsp;builders</strong> serão selecionados para passar
+            dois dias construindo AI agents que fazem trabalho de verdade.
           </p>
 
           <ul className="register__facts" data-reveal style={{ '--d': '220ms' }}>
             <li>
               <Icon name="calendar" size={20} />
               <span>
-                <small>When</small>
+                <small>Quando</small>
                 {EVENT.dates}, {EVENT.hours}
               </span>
             </li>
             <li>
               <Icon name="pin" size={20} />
               <span>
-                <small>Where</small>
-                {EVENT.venue} · {EVENT.city}
+                <small>Onde</small>
+                {EVENT.venue}, Cais do Apolo, 222 · {EVENT.city}
               </span>
             </li>
             <li>
               <Icon name="users" size={20} />
               <span>
-                <small>Who</small>
-                Selection-based · limited spots
+                <small>Quem</small>
+                Seleção prévia · vagas limitadas
               </span>
             </li>
           </ul>
 
           <a href={LUMA.eventUrl} target="_blank" rel="noreferrer" className="text-link" data-reveal>
-            Open the event on Luma <Icon name="arrowUpRight" size={16} />
+            Abrir o evento no Luma <Icon name="arrowUpRight" size={16} />
           </a>
         </div>
 
@@ -67,7 +67,7 @@ export default function Register() {
             </div>
             <iframe
               src={LUMA.embedUrl}
-              title="Converge Challenge registration on Luma"
+              title="Inscrição do Converge Challenge no Luma"
               width="600"
               height="800"
               loading="lazy"

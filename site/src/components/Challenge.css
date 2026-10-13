@@ -19,6 +19,7 @@
   line-height: 0.95;
   letter-spacing: -0.03em;
   color: var(--ink-navy);
+  text-wrap: balance;
 }
 
 .challenge__title em {

@@ -6,7 +6,7 @@ const GLYPHS = '#*+=-:<>/01_';
 // Text that "decodes" from ASCII noise into the final string, left to right.
 // The real text is always in the DOM for screen readers and no-JS visitors;
 // only the visible layer is animated.
-export default function ScrambleText({ text, as: Tag = 'span', className, play = true, delay = 0, duration = 1100 }) {
+export default function ScrambleText({ text, as: Tag = 'span', className, play = true, delay = 0, duration = 1100, ...rest }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function ScrambleText({ text, as: Tag = 'span', className, play =
   }, [text, play, delay, duration]);
 
   return (
-    <Tag className={className}>
+    <Tag className={className} {...rest}>
       <span className="visually-hidden">{text}</span>
       <span ref={ref} aria-hidden="true">
         {text}

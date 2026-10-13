@@ -11,12 +11,12 @@ export default function Footer() {
           <div className="footer__brand">
             <img src={wordmark} alt="Converge Challenge" width="696" height="191" loading="lazy" />
             <p>
-              The AI Agents hackathon of the Northeast. {EVENT.dates} · {EVENT.venue}, {EVENT.city}.
+              O hackathon de AI Agents do Nordeste. {EVENT.dates} · {EVENT.venue}, Cais do Apolo, 222, {EVENT.city}.
             </p>
           </div>
 
-          <nav className="footer__col" aria-label="Footer">
-            <h2>Navigate</h2>
+          <nav className="footer__col" aria-label="Rodapé">
+            <h2>Navegação</h2>
             {NAV_LINKS.map(({ id, label }) => (
               <a key={id} href={`#${id}`}>
                 {label}
@@ -25,7 +25,7 @@ export default function Footer() {
           </nav>
 
           <div className="footer__col">
-            <h2>Contact</h2>
+            <h2>Contato</h2>
             <a href={`mailto:${CONTACT.email}`}>
               <Icon name="mail" size={16} /> {CONTACT.email}
             </a>
@@ -35,9 +35,9 @@ export default function Footer() {
           </div>
 
           <div className="footer__col">
-            <h2>Register</h2>
+            <h2>Inscrição</h2>
             <a href={LUMA.eventUrl} target="_blank" rel="noreferrer">
-              Apply on Luma <Icon name="arrowUpRight" size={16} />
+              Candidate-se no Luma <Icon name="arrowUpRight" size={16} />
             </a>
           </div>
         </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="footer__bottom">
           <p>© 2026 Converge Challenge · Ligia (CIn-UFPE), TAIL (UFPB) &amp; Canastra Ventures.</p>
           <a href="#top" className="footer__top-link">
-            Back to top <Icon name="arrowDown" size={14} style={{ transform: 'rotate(180deg)' }} />
+            Voltar ao topo <Icon name="arrowDown" size={14} style={{ transform: 'rotate(180deg)' }} />
           </a>
         </div>
       </div>

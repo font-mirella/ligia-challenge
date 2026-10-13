@@ -2,7 +2,8 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 100;
-  height: var(--nav-h);
+  height: calc(var(--nav-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
   transition:
     transform 0.5s var(--ease-out),
     background-color 0.4s,
@@ -96,13 +97,14 @@
 
 .nav__sheet {
   position: fixed;
-  inset: var(--nav-h) 0 0;
-  padding: 32px var(--gutter) 40px;
+  inset: calc(var(--nav-h) + env(safe-area-inset-top, 0px)) 0 0;
+  padding: 32px var(--gutter) calc(40px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: var(--navy-950);
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 .nav__sheet[hidden] {

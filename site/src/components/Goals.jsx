@@ -3,16 +3,16 @@ import './Goals.css';
 
 const GOALS = [
   <>
-    Expand the <em>reach of partner companies</em> and strengthen the ecosystem.
+    Ampliar o <em>alcance das empresas parceiras</em> e fortalecer o ecossistema.
   </>,
   <>
-    Encourage <em>real, high-potential solutions</em> built with AI agents.
+    Incentivar <em>soluções reais de alto potencial</em> construídas com AI agents.
   </>,
   <>
-    Create opportunities for <em>networking, recruiting and talent development</em>.
+    Criar oportunidades de <em>networking, recrutamento e formação de talentos</em>.
   </>,
   <>
-    Bring <em>Northeast talent</em> closer to companies and initiatives across Brazil.
+    Aproximar <em>talentos do Nordeste</em> de empresas e iniciativas de todo o Brasil.
   </>,
 ];
 
@@ -28,10 +28,10 @@ export default function Goals() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow" data-reveal>
-            04 / Objectives
+            04 / Objetivos
           </p>
           <h2 id="goals-title" className="goals__title" data-reveal style={{ '--d': '80ms' }}>
-            <span aria-hidden="true">&gt;</span>Objectives<span aria-hidden="true">&lt;</span>
+            <span aria-hidden="true">&gt;</span>Objetivos<span aria-hidden="true">&lt;</span>
           </h2>
         </div>
 

@@ -48,7 +48,7 @@ símbolo tem um comentário HTML com a URL de origem da logo. O wordmark
 
 ## Site do evento
 
-O site do Converge Challenge (em inglês, Vite + React) fica em
+O site do Converge Challenge (Vite + React) fica em
 [`site/`](site/) e é publicado em `/site/` pelo GitHub Actions a cada push na
 `main`: https://automlsummerschool.cin.ufpe.br/ligia-challenge/site/. Veja
 [`site/README.md`](site/README.md) para rodar e editar.

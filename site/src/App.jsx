@@ -19,7 +19,7 @@ export default function App() {
   return (
     <>
       <a href="#main" className="skip-link">
-        Skip to content
+        Pular para o conteúdo
       </a>
       <Nav />
       <main id="main">
