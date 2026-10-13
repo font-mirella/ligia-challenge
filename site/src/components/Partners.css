@@ -1,0 +1,127 @@
+.partners {
+  background: var(--navy-900);
+}
+
+.partners__orgs {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.partners__org {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(20px, 4vw, 56px);
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 3.5vw, 44px);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.partners__org:hover {
+  border-color: var(--line-strong);
+}
+
+.partners__logo {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding-right: clamp(20px, 4vw, 56px);
+  border-right: 3px solid var(--orange);
+}
+
+.partners__logo .logo--ligia { --logo-h: 44px; }
+.partners__logo .logo--tail { --logo-h: 84px; }
+
+/* the deck shows TAIL in white on navy */
+.partners__logo .logo--tail img { filter: brightness(0) invert(1); }
+.partners__logo .logo--canastra { --logo-h: 50px; }
+
+.partners__org p {
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  color: var(--ink-dim);
+  max-width: 64ch;
+}
+
+.partners__org p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.partners__role {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.partners__supporters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px clamp(28px, 4vw, 56px);
+  margin-top: 14px;
+  padding: clamp(24px, 3vw, 32px) clamp(24px, 3.5vw, 44px);
+  border-radius: var(--radius);
+  background: var(--navy-800);
+  border: 1px solid var(--line);
+}
+
+.partners__label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.partners__supporter-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px clamp(28px, 4vw, 56px);
+}
+
+.partners__supporter-logos .logo--aws { --logo-h: 38px; }
+.partners__supporter-logos .logo--render { --logo-h: 30px; }
+.partners__supporter-logos .logo--featherless { --logo-h: 32px; }
+
+.partners__more {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--ink-mute);
+}
+
+@media (max-width: 860px) {
+  .partners__org {
+    grid-template-columns: 1fr;
+  }
+
+  .partners__logo {
+    padding: 0 0 20px;
+    border-right: 0;
+    border-bottom: 3px solid var(--orange);
+    width: fit-content;
+  }
+
+  .partners__role {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    writing-mode: horizontal-tb;
+    transform: none;
+  }
+
+  .partners__more {
+    margin-left: 0;
+  }
+}
