@@ -1,0 +1,129 @@
+.faq {
+  background: var(--navy-900);
+}
+
+.faq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.4fr);
+  gap: clamp(40px, 6vw, 96px);
+  align-items: start;
+}
+
+.faq__head {
+  position: sticky;
+  top: calc(var(--nav-h) + 32px);
+  margin-bottom: 0;
+}
+
+.faq__link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--orange);
+}
+
+.faq__link:hover {
+  color: var(--orange);
+}
+
+.faq__list {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__item h3 {
+  font: inherit;
+}
+
+.faq__item button {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 26px 0;
+  text-align: left;
+}
+
+.faq__num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--orange);
+}
+
+.faq__q {
+  font-family: var(--font-mono);
+  font-size: clamp(1.02rem, 1.5vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  transition: color 0.25s;
+}
+
+.faq__item button:hover .faq__q {
+  color: var(--orange-soft);
+}
+
+.faq__icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--line-strong);
+  transition:
+    transform 0.5s var(--ease-out),
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+.faq__item.is-open .faq__icon {
+  transform: rotate(135deg);
+  background: var(--orange);
+  box-shadow: none;
+}
+
+.faq__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.55s var(--ease-out);
+}
+
+.faq__panel > div {
+  overflow: hidden;
+}
+
+.faq__item.is-open .faq__panel {
+  grid-template-rows: 1fr;
+}
+
+.faq__panel p {
+  padding: 0 52px 28px 56px;
+  color: var(--ink-dim);
+  max-width: 68ch;
+}
+
+.faq__item:not(.is-open) .faq__panel p {
+  visibility: hidden;
+  transition: visibility 0s 0.55s;
+}
+
+@media (max-width: 960px) {
+  .faq__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq__head {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .faq__item button {
+    grid-template-columns: 32px minmax(0, 1fr) 40px;
+  }
+
+  .faq__panel p {
+    padding: 0 0 24px 44px;
+  }
+}

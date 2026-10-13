@@ -1,0 +1,40 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  height: var(--logo-h, 32px);
+  width: auto;
+}
+
+.logo__name {
+  font-family: var(--font-sans);
+  font-size: calc(var(--logo-h, 32px) * 0.78);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.logo--ligia { --logo-h: 30px; }
+.logo--tail { --logo-h: 58px; }
+.logo--canastra { --logo-h: 34px; }
+.logo--aws { --logo-h: 30px; }
+.logo--render { --logo-h: 24px; }
+.logo--featherless { --logo-h: 26px; }
+
+/* Muted until hovered, so mismatched brand colours sit together quietly. */
+.logo--mono {
+  filter: grayscale(1) brightness(1.35);
+  opacity: 0.72;
+  transition:
+    filter 0.4s,
+    opacity 0.4s;
+}
+
+.logo--mono:hover {
+  filter: none;
+  opacity: 1;
+}

@@ -46,6 +46,13 @@ símbolo tem um comentário HTML com a URL de origem da logo. O wordmark
 "Converge Challenge" foi recortado do letterhead oficial (a paleta navy do
 `:root` também vem de lá).
 
+## Site do evento
+
+O site do Converge Challenge (em inglês, Vite + React) fica em
+[`site/`](site/) e é publicado em `/site/` pelo GitHub Actions a cada push na
+`main`: https://automlsummerschool.cin.ufpe.br/ligia-challenge/site/. Veja
+[`site/README.md`](site/README.md) para rodar e editar.
+
 ## Contato
 
 [ligia@cin.ufpe.br](mailto:ligia@cin.ufpe.br)
