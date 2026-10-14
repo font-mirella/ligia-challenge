@@ -53,9 +53,6 @@ export default function Audience() {
               </span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
-              <span className="audience__index" aria-hidden="true">
-                0{i + 1}
-              </span>
             </article>
           ))}
         </div>

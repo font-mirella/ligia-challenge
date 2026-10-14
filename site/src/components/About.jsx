@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import useInView from '../hooks/useInView.js';
 import { EVENT } from '../config.js';
-import BinaryRain from './BinaryRain.jsx';
 import CountUp from './CountUp.jsx';
 import ScrambleText from './ScrambleText.jsx';
 import './About.css';
@@ -19,8 +18,6 @@ export default function About() {
 
   return (
     <section id="about" className="section about" aria-labelledby="about-title">
-      <BinaryRain className="about__rain" gap={46} density={0.35} speed={0.7} />
-
       <div className="container">
         <div className="about__grid">
           <div className="about__text">

@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import useInView from '../hooks/useInView.js';
 import Terminal from './Terminal.jsx';
 import './Challenge.css';
@@ -64,20 +64,11 @@ const AGENTS = [
 ];
 
 export default function Challenge() {
-  // Deep-linkable: ?agent=suporte selects that card on load.
-  const [active, setActive] = useState(() =>
-    Math.max(0, AGENTS.findIndex((a) => a.id === new URLSearchParams(window.location.search).get('agent'))),
-  );
-  const [auto, setAuto] = useState(true);
+  const [active, setActive] = useState(0);
   const termRef = useRef(null);
   const inView = useInView(termRef, { threshold: 0.35 });
 
-  const next = useCallback(() => {
-    if (auto) setActive((i) => (i + 1) % AGENTS.length);
-  }, [auto]);
-
   const agent = AGENTS[active];
-
   return (
     <section id="challenge" className="section section--paper challenge" aria-labelledby="challenge-title">
       <div className="container">
@@ -96,35 +87,27 @@ export default function Challenge() {
           </p>
         </div>
 
-        <div className="challenge__grid">
-          <div className="challenge__term" ref={termRef} data-reveal="scale">
-            <Terminal title={`~/converge/${agent.id}`} lines={agent.lines} play={inView} onDone={next} />
-          </div>
-
-          <ul className="challenge__cards" role="list">
-            {AGENTS.map((a, i) => (
-              <li key={a.id} data-reveal style={{ '--d': `${i * 90}ms` }}>
-                <button
-                  type="button"
-                  className={`challenge__card spotlight ${i === active ? 'is-active' : ''}`}
-                  aria-pressed={i === active}
-                  onClick={() => {
-                    setActive(i);
-                    setAuto(false);
-                    const url = new URL(window.location.href);
-                    url.searchParams.set('agent', a.id);
-                    window.history.replaceState(null, '', url);
-                  }}
-                >
-                  <span className="challenge__num">0{i + 1}</span>
-                  <span className="challenge__card-title">{a.title}</span>
-                  <span className="challenge__card-text">{a.text}</span>
-                  <span className="challenge__code">agent/{a.id}</span>
-                </button>
-              </li>
-            ))}
-          </ul>
+        <div className="challenge__term" ref={termRef} data-reveal>
+          <Terminal
+            title={`~/converge/${agent.id}`}
+            lines={agent.lines}
+            play={inView}
+            onDone={() => setActive((i) => (i + 1) % AGENTS.length)}
+          />
         </div>
+
+        <ul className="challenge__cards" role="list">
+          {AGENTS.map((a, i) => (
+            <li key={a.id} data-reveal style={{ '--d': `${i * 90}ms` }}>
+              <article className="challenge__card spotlight">
+                <span className="challenge__num">0{i + 1}</span>
+                <h3 className="challenge__card-title">{a.title}</h3>
+                <p className="challenge__card-text">{a.text}</p>
+                <span className="challenge__code">agent/{a.id}</span>
+              </article>
+            </li>
+          ))}
+        </ul>
 
         <a href="#sponsor" className="challenge__note" data-reveal>
           <svg viewBox="0 0 64 48" aria-hidden="true">

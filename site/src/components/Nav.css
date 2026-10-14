@@ -49,8 +49,8 @@
   letter-spacing: 0.04em;
   color: var(--ink-dim);
   transition:
-    color 0.25s,
-    background-color 0.25s;
+    color 0.4s,
+    background-color 0.4s;
 }
 
 .nav__links a:hover {

@@ -1,4 +1,3 @@
-import { asciiOrb } from '../lib/ascii.js';
 import './Goals.css';
 
 const GOALS = [
@@ -16,22 +15,16 @@ const GOALS = [
   </>,
 ];
 
-const ORB = asciiOrb(84, 40);
-
 export default function Goals() {
   return (
     <section id="goals" className="section section--deep goals" aria-labelledby="goals-title">
-      <pre className="ascii-bg goals__orb" aria-hidden="true">
-        {ORB}
-      </pre>
-
       <div className="container">
         <div className="section-head">
           <p className="eyebrow" data-reveal>
             04 / Objetivos
           </p>
-          <h2 id="goals-title" className="goals__title" data-reveal style={{ '--d': '80ms' }}>
-            <span aria-hidden="true">&gt;</span>Objetivos<span aria-hidden="true">&lt;</span>
+          <h2 id="goals-title" className="title" data-reveal style={{ '--d': '80ms' }}>
+            Nossos <em>objetivos</em>.
           </h2>
         </div>
 
@@ -40,9 +33,6 @@ export default function Goals() {
             <li key={i} className="goals__item" data-reveal style={{ '--d': `${i * 90}ms` }}>
               <span className="goals__num">0{i + 1}</span>
               <p className="goals__text">{g}</p>
-              <span className="goals__chev" aria-hidden="true">
-                &gt;
-              </span>
             </li>
           ))}
         </ol>

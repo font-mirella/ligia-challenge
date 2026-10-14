@@ -14,19 +14,18 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  min-height: 300px;
-  padding: 32px 28px;
+  padding: 28px 26px;
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
   overflow: hidden;
   transition:
-    transform 0.5s var(--ease-out),
-    border-color 0.3s;
+    transform 0.7s var(--ease-out),
+    border-color 0.5s;
 }
 
 .audience__card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-3px);
   border-color: rgba(255, 90, 31, 0.45);
 }
 
@@ -40,15 +39,14 @@
   background: rgba(255, 90, 31, 0.12);
   color: var(--orange);
   transition:
-    background-color 0.3s,
-    color 0.3s,
-    transform 0.5s var(--ease-out);
+    background-color 0.5s,
+    color 0.5s,
+    transform 0.7s var(--ease-out);
 }
 
 .audience__card:hover .audience__icon {
   background: var(--orange);
   color: #fff;
-  transform: rotate(-8deg) scale(1.05);
 }
 
 .audience__card h3 {
@@ -61,20 +59,6 @@
 .audience__card p {
   color: var(--ink-dim);
   font-size: 16px;
-}
-
-.audience__index {
-  position: absolute;
-  right: 20px;
-  bottom: -18px;
-  font-family: var(--font-sans);
-  font-size: 110px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.08em;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(234, 240, 255, 0.1);
-  pointer-events: none;
 }
 
 .audience__perks {
@@ -103,7 +87,7 @@
 
 .audience__perks ul {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px 28px;
   margin: 0;
   padding: 0;
@@ -114,8 +98,6 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-  padding-bottom: 14px;
-  border-bottom: 1px dashed var(--line);
   font-size: 16px;
 }
 
@@ -130,12 +112,12 @@
     grid-template-columns: 1fr;
   }
 
-  .audience__card {
-    min-height: 0;
-  }
-
   .audience__perks {
     grid-template-columns: 1fr;
+  }
+
+  .audience__perks ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

@@ -1,5 +1,4 @@
 import { CONTACT, SPONSOR_MAILTO } from '../config.js';
-import { asciiStripes } from '../lib/ascii.js';
 import Icon from './Icon.jsx';
 import './Sponsor.css';
 
@@ -39,15 +38,9 @@ const WHY = [
   ['Defina o problema', 'Traga os desafios operacionais que você quer ver resolvidos.'],
 ];
 
-const STRIPES = asciiStripes(96, 30);
-
 export default function Sponsor() {
   return (
     <section id="sponsor" className="section sponsor" aria-labelledby="sponsor-title">
-      <pre className="ascii-bg sponsor__ascii" aria-hidden="true">
-        {STRIPES}
-      </pre>
-
       <div className="container sponsor__inner">
         <div className="sponsor__intro">
           <p className="eyebrow sponsor__eyebrow" data-reveal>

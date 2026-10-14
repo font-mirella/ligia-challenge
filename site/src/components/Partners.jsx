@@ -17,11 +17,11 @@ export default function Partners() {
         <ul className="partners__orgs" role="list">
           {ORGANIZERS.map((o, i) => (
             <li key={o.id} className="partners__org spotlight" data-reveal style={{ '--d': `${i * 100}ms` }}>
+              <span className="partners__role">Organizador</span>
               <a href={o.url} target="_blank" rel="noreferrer" className="partners__logo" aria-label={`${o.name} (abre em nova aba)`}>
                 <Logo logo={o} alt="" />
               </a>
               <p>{o.blurb}</p>
-              <span className="partners__role">Organizador</span>
             </li>
           ))}
         </ul>

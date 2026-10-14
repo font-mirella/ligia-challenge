@@ -4,6 +4,7 @@
 
 .partners__orgs {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin: 0;
   padding: 0;
@@ -12,15 +13,15 @@
 
 .partners__org {
   display: grid;
-  grid-template-columns: 260px minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(20px, 4vw, 56px);
-  padding: clamp(24px, 3vw, 36px) clamp(24px, 3.5vw, 44px);
+  grid-template-columns: 1fr;
+  align-content: start;
+  gap: 20px;
+  padding: clamp(24px, 3vw, 32px);
   border-radius: var(--radius);
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.025);
   overflow: hidden;
-  transition: border-color 0.3s;
+  transition: border-color 0.5s;
 }
 
 .partners__org:hover {
@@ -30,9 +31,7 @@
 .partners__logo {
   display: flex;
   align-items: center;
-  min-height: 64px;
-  padding-right: clamp(20px, 4vw, 56px);
-  border-right: 3px solid var(--orange);
+  min-height: 72px;
 }
 
 .partners__logo .logo--ligia { --logo-h: 44px; }
@@ -54,13 +53,15 @@
 }
 
 .partners__role {
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 90, 31, 0.4);
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ink-mute);
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  color: var(--orange);
 }
 
 .partners__supporters {
@@ -102,23 +103,8 @@
 }
 
 @media (max-width: 860px) {
-  .partners__org {
+  .partners__orgs {
     grid-template-columns: 1fr;
-  }
-
-  .partners__logo {
-    padding: 0 0 20px;
-    border-right: 0;
-    border-bottom: 3px solid var(--orange);
-    width: fit-content;
-  }
-
-  .partners__role {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    writing-mode: horizontal-tb;
-    transform: none;
   }
 
   .partners__more {

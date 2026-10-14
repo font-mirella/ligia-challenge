@@ -1,7 +1,5 @@
 import { EVENT } from '../config.js';
 import AsciiTorus from './AsciiTorus.jsx';
-import BinaryRain from './BinaryRain.jsx';
-import Countdown from './Countdown.jsx';
 import Icon from './Icon.jsx';
 import ScrambleText from './ScrambleText.jsx';
 import { Logo, ORGANIZERS, SUPPORTERS } from './Logos.jsx';
@@ -12,7 +10,6 @@ export default function Hero() {
     <section id="top" className="hero" aria-labelledby="hero-title">
       <div className="hero__bg" aria-hidden="true">
         <div className="hero__grid" />
-        <BinaryRain className="hero__rain" />
       </div>
       <AsciiTorus className="hero__torus" />
 
@@ -27,12 +24,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero__sub rise" style={{ '--i': 3 }}>
-          o hackathon de <em>AI Agents</em> do Nordeste.
-        </p>
-
-        <p className="hero__copy rise" style={{ '--i': 4 }}>
-          Dois dias, {EVENT.builders}&nbsp;builders selecionados e uma missão: criar AI agents que fazem trabalho de
-          verdade. Organizado por Ligia, TAIL e Canastra Ventures.
+          O hackathon de <em>AI Agents</em> do Nordeste.
         </p>
 
         <ul className="hero__meta rise" style={{ '--i': 5 }}>
@@ -55,10 +47,6 @@ export default function Hero() {
             Seja patrocinador
           </a>
         </div>
-
-        <div className="hero__countdown rise" style={{ '--i': 7 }}>
-          <Countdown />
-        </div>
       </div>
 
       <div className="container hero__logos rise" style={{ '--i': 8 }}>
@@ -75,11 +63,6 @@ export default function Hero() {
           ))}
         </div>
       </div>
-
-      <a href="#about" className="hero__scroll" aria-label="Rolar para Sobre">
-        <span>Role</span>
-        <i />
-      </a>
     </section>
   );
 }

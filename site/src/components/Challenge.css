@@ -35,58 +35,28 @@
   margin-bottom: 8px;
 }
 
-.challenge__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: clamp(20px, 3vw, 36px);
-  align-items: start;
-}
-
-.challenge__term {
-  position: sticky;
-  top: calc(var(--nav-h) + 24px);
-}
-
 .challenge__cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  margin: 0;
+  margin: clamp(20px, 3vw, 36px) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .challenge__card {
   height: 100%;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   padding: 24px 22px 22px;
-  text-align: left;
   border-radius: var(--radius);
   background: #fff;
   border: 1px solid rgba(10, 22, 64, 0.08);
   box-shadow: 0 1px 0 rgba(10, 22, 64, 0.04);
   color: var(--ink-navy);
   overflow: hidden;
-  transition:
-    transform 0.45s var(--ease-out),
-    box-shadow 0.45s var(--ease-out),
-    border-color 0.3s,
-    background-color 0.3s;
-}
-
-.challenge__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 24px 48px -24px rgba(10, 22, 64, 0.35);
-}
-
-.challenge__card.is-active {
-  background: var(--navy-850);
-  color: var(--ink);
-  border-color: var(--navy-850);
 }
 
 .challenge__num {
@@ -110,20 +80,12 @@
   color: var(--ink-navy-dim);
 }
 
-.challenge__card.is-active .challenge__card-text {
-  color: var(--ink-dim);
-}
-
 .challenge__code {
   margin-top: auto;
   padding-top: 10px;
   font-family: var(--font-mono);
   font-size: 12px;
   color: rgba(10, 22, 64, 0.45);
-}
-
-.challenge__card.is-active .challenge__code {
-  color: var(--orange-soft);
 }
 
 .challenge__note {
@@ -134,14 +96,14 @@
   font-size: 16px;
   color: var(--ink-navy);
   border-bottom: 1px solid transparent;
-  transition: color 0.25s;
+  transition: color 0.4s;
 }
 
 .challenge__note svg {
   width: 52px;
   flex: none;
   color: var(--orange);
-  transition: transform 0.4s var(--ease-out);
+  transition: transform 0.6s var(--ease-out);
 }
 
 .challenge__note:hover {
@@ -152,14 +114,9 @@
   transform: translateX(4px);
 }
 
-@media (max-width: 960px) {
-  .challenge__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .challenge__term {
-    position: relative;
-    top: 0;
+@media (max-width: 1080px) {
+  .challenge__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 

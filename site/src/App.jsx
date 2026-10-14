@@ -1,7 +1,7 @@
 import usePageEffects from './hooks/usePageEffects.js';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
-import Marquee from './components/Marquee.jsx';
+import Countdown from './components/Countdown.jsx';
 import About from './components/About.jsx';
 import Challenge from './components/Challenge.jsx';
 import Audience from './components/Audience.jsx';
@@ -24,7 +24,7 @@ export default function App() {
       <Nav />
       <main id="main">
         <Hero />
-        <Marquee />
+        <Countdown />
         <About />
         <Challenge />
         <Audience />
