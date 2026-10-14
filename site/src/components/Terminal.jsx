@@ -37,7 +37,7 @@ export default function Terminal({ title, lines, play, onDone }) {
   }, [play, reduced, line, chars, lines, onDone]);
 
   return (
-    <div className="term" role="img" aria-label={`Example agent run: ${title}`}>
+    <div className="term" role="img" aria-label={`Exemplo de execução de agente: ${title}`}>
       <div className="term__bar">
         <span className="term__dots">
           <i />
@@ -45,7 +45,7 @@ export default function Terminal({ title, lines, play, onDone }) {
           <i />
         </span>
         <span className="term__title">{title}</span>
-        <span className="term__tag">example run</span>
+        <span className="term__tag">exemplo</span>
       </div>
       <pre className="term__body" aria-hidden="true">
         {lines.map((l, i) => {

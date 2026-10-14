@@ -16,8 +16,8 @@ export const ORGANIZERS = [
     url: 'https://www.instagram.com/ligia.ufpe/',
     blurb: (
       <>
-        The Artificial Intelligence academic league at <strong>CIn-UFPE</strong>, made up of students and
-        researchers focused on <strong>AI and its applications to real-world problems</strong>.
+        A liga acadêmica de Inteligência Artificial do <strong>CIn-UFPE</strong>, formada por estudantes e
+        pesquisadores focados em <strong>IA e suas aplicações em problemas reais</strong>.
       </>
     ),
   },
@@ -30,8 +30,8 @@ export const ORGANIZERS = [
     url: 'https://tail-tech.com/',
     blurb: (
       <>
-        A league of <strong>UFPB</strong> students and professors dedicated to{' '}
-        <strong>AI research and education</strong>, from undergrad all the way to PhD.
+        Liga de <strong>estudantes e professores da UFPB</strong> dedicada à{' '}
+        <strong>pesquisa e ao ensino de IA</strong>, da graduação ao doutorado.
       </>
     ),
   },
@@ -44,8 +44,9 @@ export const ORGANIZERS = [
     url: 'https://www.canastra.ventures/',
     blurb: (
       <>
-        An <strong>AI-focused venture capital fund</strong> backing Brazilian founders from day zero with capital,
-        a residency program and a direct line to the <strong>Silicon Valley</strong> ecosystem.
+        Um <strong>fundo de venture capital focado em IA</strong> que apoia fundadores brasileiros desde o dia zero
+        com capital, programa de residência e conexão direta com o ecossistema do{' '}
+        <strong>Vale do Silício</strong>.
       </>
     ),
   },
@@ -58,10 +59,11 @@ export const SUPPORTERS = [
 ];
 
 // One logo, optionally followed by its name for icon-only marks.
-export function Logo({ logo, className = '' }) {
+// Pass alt="" when the logo sits inside an already-labeled link.
+export function Logo({ logo, className = '', alt }) {
   return (
     <span className={`logo logo--${logo.id} ${className}`}>
-      <img src={logo.src} alt={logo.label ? '' : logo.name} width={logo.width} height={logo.height} loading="lazy" />
+      <img src={logo.src} alt={alt ?? (logo.label ? '' : logo.name)} width={logo.width} height={logo.height} loading="lazy" />
       {logo.label && <span className="logo__name">{logo.name}</span>}
     </span>
   );

@@ -3,13 +3,6 @@
   color: #fff;
 }
 
-.sponsor__ascii {
-  top: -10px;
-  right: -4%;
-  font-size: clamp(10px, 1.2vw, 16px);
-  color: rgba(255, 255, 255, 0.16);
-}
-
 .sponsor__inner {
   position: relative;
   display: grid;
@@ -93,21 +86,16 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  min-height: 420px;
-  padding: 34px 28px;
+  padding: 30px 28px;
   border-radius: 28px;
   background: linear-gradient(180deg, var(--navy-950), var(--navy-700));
   box-shadow: 0 40px 80px -40px rgba(5, 11, 36, 0.7);
   overflow: hidden;
-  transition: transform 0.5s var(--ease-out);
-}
-
-.sponsor__tier:nth-child(2) {
-  margin-top: 48px;
+  transition: transform 0.7s var(--ease-out);
 }
 
 .sponsor__tier:hover {
-  transform: translateY(-8px) rotate(-0.6deg);
+  transform: translateY(-3px);
 }
 
 .sponsor__tier header {
@@ -181,14 +169,6 @@
 
   .sponsor__tiers {
     grid-template-columns: 1fr;
-  }
-
-  .sponsor__tier {
-    min-height: 0;
-  }
-
-  .sponsor__tier:nth-child(2) {
-    margin-top: 0;
   }
 
   .sponsor__why li {

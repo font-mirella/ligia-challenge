@@ -52,9 +52,16 @@ export default function Nav() {
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
+    // Keep keyboard focus and screen readers inside the open sheet.
+    const regions = [...document.querySelectorAll('main, footer')];
+    for (const el of regions) el.toggleAttribute('inert', open);
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = '';
+      for (const el of regions) el.removeAttribute('inert');
+    };
   }, [open]);
 
   const close = () => setOpen(false);
@@ -62,11 +69,11 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${hidden && !open ? 'is-hidden' : ''} ${open ? 'is-open' : ''}`}>
       <div className="nav__inner container">
-        <a href="#top" className="nav__brand" onClick={close} aria-label="Converge Challenge, back to top">
+        <a href="#top" className="nav__brand" onClick={close} aria-label="Converge Challenge, voltar ao topo">
           <img src={wordmark} alt="" width="696" height="191" />
         </a>
 
-        <nav className="nav__links" aria-label="Main">
+        <nav className="nav__links" aria-label="Principal">
           {NAV_LINKS.map(({ id, label }) => (
             <a key={id} href={`#${id}`} className={active === id ? 'is-active' : ''} onClick={close}>
               {label}
@@ -75,7 +82,7 @@ export default function Nav() {
         </nav>
 
         <a href="#register" className="btn btn--sm nav__cta" onClick={close}>
-          Register <Icon name="arrow" size={16} className="arrow" />
+          Inscrever-se <Icon name="arrow" size={16} className="arrow" />
         </a>
 
         <button
@@ -83,7 +90,7 @@ export default function Nav() {
           className="nav__toggle"
           aria-expanded={open}
           aria-controls="mobile-menu"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((v) => !v)}
         >
           <Icon name={open ? 'close' : 'menu'} size={22} />
@@ -91,7 +98,7 @@ export default function Nav() {
       </div>
 
       <div id="mobile-menu" className="nav__sheet" hidden={!open}>
-        <nav aria-label="Mobile">
+        <nav aria-label="Móvel">
           {NAV_LINKS.map(({ id, label }, i) => (
             <a key={id} href={`#${id}`} onClick={close} style={{ '--i': i }}>
               <span>0{i + 1}</span>
@@ -100,7 +107,7 @@ export default function Nav() {
           ))}
         </nav>
         <a href="#register" className="btn" onClick={close}>
-          Register on Luma <Icon name="arrow" size={18} className="arrow" />
+          Inscrever-se no Luma <Icon name="arrow" size={18} className="arrow" />
         </a>
       </div>
 

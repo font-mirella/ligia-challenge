@@ -34,6 +34,7 @@
   line-height: 0.95;
   letter-spacing: -0.06em;
   text-transform: uppercase;
+  text-wrap: balance;
 }
 
 .register__title em {
@@ -111,7 +112,7 @@
 .register__window iframe {
   width: 100%;
   /* tall enough for Luma's whole card, so its "Request to Join" button shows without inner scrolling */
-  height: 800px;
+  height: 720px;
   border: 0;
   border-radius: 14px;
   background: #0f1730;
@@ -130,6 +131,6 @@
   }
 
   .register__window iframe {
-    height: 850px;
+    height: 770px;
   }
 }

@@ -2,10 +2,10 @@
 
 export const EVENT = {
   name: 'Converge Challenge',
-  // Kickoff and closing, Recife time (UTC-3, no daylight saving).
+  // Abertura e encerramento, horário de Recife (UTC-3, sem horário de verão).
   start: '2026-11-07T09:00:00-03:00',
   end: '2026-11-08T17:00:00-03:00',
-  dates: 'Nov 7–8, 2026',
+  dates: '7–8 nov, 2026',
   hours: '09:00 – 17:00',
   venue: 'Porto Digital',
   city: 'Recife, PE',
@@ -23,13 +23,13 @@ export const CONTACT = {
 };
 
 export const SPONSOR_MAILTO =
-  `mailto:${CONTACT.email}?subject=${encodeURIComponent('Converge Challenge — Sponsorship')}`;
+  `mailto:${CONTACT.email}?subject=${encodeURIComponent('Converge Challenge — Patrocínio')}`;
 
 export const NAV_LINKS = [
-  { id: 'about', label: 'About' },
-  { id: 'challenge', label: 'Challenge' },
-  { id: 'schedule', label: 'Schedule' },
-  { id: 'partners', label: 'Partners' },
-  { id: 'sponsor', label: 'Sponsor' },
+  { id: 'about', label: 'Sobre' },
+  { id: 'challenge', label: 'Desafio' },
+  { id: 'schedule', label: 'Programação' },
+  { id: 'partners', label: 'Parceiros' },
+  { id: 'sponsor', label: 'Patrocínio' },
   { id: 'faq', label: 'FAQ' },
 ];

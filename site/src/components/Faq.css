@@ -57,7 +57,7 @@
   font-size: clamp(1.02rem, 1.5vw, 1.25rem);
   font-weight: 600;
   letter-spacing: -0.02em;
-  transition: color 0.25s;
+  transition: color 0.4s;
 }
 
 .faq__item button:hover .faq__q {
@@ -72,9 +72,9 @@
   border-radius: 50%;
   box-shadow: inset 0 0 0 1px var(--line-strong);
   transition:
-    transform 0.5s var(--ease-out),
-    background-color 0.3s,
-    box-shadow 0.3s;
+    transform 0.7s var(--ease-out),
+    background-color 0.5s,
+    box-shadow 0.5s;
 }
 
 .faq__item.is-open .faq__icon {
@@ -86,7 +86,7 @@
 .faq__panel {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.55s var(--ease-out);
+  transition: grid-template-rows 0.75s var(--ease-out);
 }
 
 .faq__panel > div {
@@ -105,7 +105,7 @@
 
 .faq__item:not(.is-open) .faq__panel p {
   visibility: hidden;
-  transition: visibility 0s 0.55s;
+  transition: visibility 0s 0.75s;
 }
 
 @media (max-width: 960px) {

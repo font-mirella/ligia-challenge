@@ -4,28 +4,28 @@ import './Audience.css';
 const PROFILES = [
   {
     icon: 'grad',
-    title: 'Tech students',
-    text: 'Undergrad and grad students in Computer Science, Software Engineering and related fields.',
+    title: 'Estudantes de TI',
+    text: 'Graduandos e pós-graduandos em Ciência da Computação, Engenharia de Software e áreas afins.',
   },
   {
     icon: 'code',
     title: 'Devs & builders',
-    text: 'Professionals and enthusiasts who already build AI agents, tools or side projects and want to go further.',
+    text: 'Profissionais e entusiastas que já constroem AI agents, ferramentas ou side projects e querem ir além.',
   },
   {
     icon: 'rocket',
     title: 'Founders & startups',
-    text: 'Founders and early-stage teams exploring AI agents as a core part of their product or operations.',
+    text: 'Fundadores e times early-stage que exploram AI agents como parte central do produto ou da operação.',
   },
 ];
 
 const PERKS = [
-  'Mentorship from industry professionals',
-  'Networking with participants and partners',
-  'Infrastructure to build your project',
-  'A stage to present your solution live',
-  'Evaluation by a panel of judges',
-  'Awards for the top projects',
+  'Mentoria de profissionais do mercado',
+  'Networking com participantes e parceiros',
+  'Infraestrutura para construir seu projeto',
+  'Palco para apresentar sua solução ao vivo',
+  'Avaliação por um júri de especialistas',
+  'Prêmios para os melhores projetos',
 ];
 
 export default function Audience() {
@@ -34,14 +34,14 @@ export default function Audience() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow" data-reveal>
-            03 / Who it's for
+            03 / Para quem é
           </p>
           <h2 id="who-title" className="title" data-reveal style={{ '--d': '80ms' }}>
-            Made for <em>builders</em>.
+            Feito para <em>builders</em>.
           </h2>
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-            Talent from <strong>Recife</strong> and <strong>João Pessoa</strong> who want to spend a weekend shipping
-            AI agents with people who build like they do. Participants are selected from the applications.
+            Talentos de <strong>Recife</strong> e <strong>João Pessoa</strong> que querem passar um fim de semana
+            criando AI agents com quem constrói como eles. Os participantes são selecionados a partir das inscrições.
           </p>
         </div>
 
@@ -53,16 +53,13 @@ export default function Audience() {
               </span>
               <h3>{p.title}</h3>
               <p>{p.text}</p>
-              <span className="audience__index" aria-hidden="true">
-                0{i + 1}
-              </span>
             </article>
           ))}
         </div>
 
         <div className="audience__perks" data-reveal>
           <h3 className="audience__perks-title">
-            What you <em className="serif">get</em>
+            O que você <em className="serif">ganha</em>
           </h3>
           <ul>
             {PERKS.map((perk) => (

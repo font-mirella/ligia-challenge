@@ -132,8 +132,8 @@ export default function AsciiTorus({ className }) {
       if (now - last < 28) return; // ~35 fps is plenty for ASCII
       const dt = Math.min(3, (now - last) / 16.7);
       last = now;
-      A += 0.0042 * dt;
-      B += 0.0024 * dt;
+      A += 0.0026 * dt;
+      B += 0.0015 * dt;
       tiltX += (targetX - tiltX) * 0.05 * dt;
       tiltY += (targetY - tiltY) * 0.05 * dt;
       const p = Math.min(1, (now - t0) / 1800);

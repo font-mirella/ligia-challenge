@@ -47,7 +47,7 @@
   width: fit-content;
   font-size: 15px;
   color: var(--ink-dim);
-  transition: color 0.25s;
+  transition: color 0.4s;
 }
 
 .footer__col a:hover {

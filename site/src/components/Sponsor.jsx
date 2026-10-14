@@ -1,5 +1,4 @@
 import { CONTACT, SPONSOR_MAILTO } from '../config.js';
-import { asciiStripes } from '../lib/ascii.js';
 import Icon from './Icon.jsx';
 import './Sponsor.css';
 
@@ -9,56 +8,50 @@ const TIERS = [
     intro: null,
     perks: [
       <>
-        Your brand in <u>all event communications</u>
+        Sua marca em <u>todas as comunicações do evento</u>
       </>,
       <>
-        Access to the <u>applicant and participant base</u>
+        Acesso à <u>base de inscritos e participantes</u>
       </>,
       <>
-        <u>Physical presence</u> during the event
+        <u>Presença física</u> durante o evento
       </>,
     ],
   },
   {
-    name: 'Silver',
-    intro: 'Everything in Bronze, plus:',
+    name: 'Prata',
+    intro: 'Tudo do Bronze, mais:',
     perks: [
       <>
-        Influence on the hackathon's <u>motivating problems</u>, within the <u>AI Agents</u> scope
+        Influência nos <u>problemas motivadores</u> do hackathon, dentro do escopo de <u>AI Agents</u>
       </>,
       <>
-        A seat as <u>mentor</u> and <u>judge</u>
+        Uma cadeira como <u>mentor</u> e <u>jurado</u>
       </>,
     ],
   },
 ];
 
 const WHY = [
-  ['Brand reach', 'Put your company in front of the Northeast’s AI community.'],
-  ['Talent access', 'Meet and recruit builders while they ship real agents.'],
-  ['Shape the problem', 'Bring the operational challenges you want solved.'],
+  ['Alcance de marca', 'Coloque sua empresa diante da comunidade de IA do Nordeste.'],
+  ['Acesso a talentos', 'Conheça e recrute builders enquanto eles criam agents reais.'],
+  ['Defina o problema', 'Traga os desafios operacionais que você quer ver resolvidos.'],
 ];
-
-const STRIPES = asciiStripes(96, 30);
 
 export default function Sponsor() {
   return (
     <section id="sponsor" className="section sponsor" aria-labelledby="sponsor-title">
-      <pre className="ascii-bg sponsor__ascii" aria-hidden="true">
-        {STRIPES}
-      </pre>
-
       <div className="container sponsor__inner">
         <div className="sponsor__intro">
           <p className="eyebrow sponsor__eyebrow" data-reveal>
-            07 / Sponsorship
+            07 / Patrocínio
           </p>
           <h2 id="sponsor-title" className="title" data-reveal style={{ '--d': '80ms' }}>
-            Put your brand where <em>AI agents</em> get built.
+            Coloque sua marca onde <em>AI agents</em> são construídos.
           </h2>
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-            Partner with Converge Challenge to grow your company's visibility, strengthen the ecosystem and meet the
-            people building the next generation of agentic software.
+            Seja parceiro do Converge Challenge para ampliar a visibilidade da sua empresa, fortalecer o ecossistema
+            e conhecer quem está construindo a próxima geração de software agêntico.
           </p>
 
           <ul className="sponsor__why" role="list">
@@ -72,7 +65,7 @@ export default function Sponsor() {
 
           <div className="sponsor__cta" data-reveal>
             <a href={SPONSOR_MAILTO} className="btn btn--navy">
-              Talk to us <Icon name="arrow" size={18} className="arrow" />
+              Fale conosco <Icon name="arrow" size={18} className="arrow" />
             </a>
             <a href={SPONSOR_MAILTO} className="sponsor__mail">
               {CONTACT.email}
@@ -84,7 +77,7 @@ export default function Sponsor() {
           {TIERS.map((t, i) => (
             <article key={t.name} className="sponsor__tier spotlight" data-reveal style={{ '--d': `${i * 120}ms` }}>
               <header>
-                <span className="sponsor__tier-label">Tier</span>
+                <span className="sponsor__tier-label">Nível</span>
                 <h3>{t.name}</h3>
               </header>
               {t.intro && <p className="sponsor__tier-intro">{t.intro}</p>}
