@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import useInView from '../hooks/useInView.js';
 import Terminal from './Terminal.jsx';
+import Icon from './Icon.jsx';
 import './Challenge.css';
 
 // Exemplos de problemas a partir do deck. Os logs do terminal são ilustrativos.
@@ -74,7 +75,7 @@ export default function Challenge() {
       <div className="container">
         <div className="challenge__head">
           <p className="eyebrow" data-reveal>
-            02 / O Desafio
+            02 / CHALLENGE
           </p>
           <h2 id="challenge-title" className="challenge__title" data-reveal style={{ '--d': '80ms' }}>
             <span className="challenge__kicker">O desafio:</span>
@@ -90,7 +91,6 @@ export default function Challenge() {
         <div className="challenge__term" ref={termRef} data-reveal>
           <Terminal
             title={`~/converge/${agent.id}`}
-            label={agent.title}
             lines={agent.lines}
             play={inView}
             onDone={() => setActive((i) => (i + 1) % AGENTS.length)}
@@ -111,11 +111,17 @@ export default function Challenge() {
         </ul>
 
         <a href="#sponsor" className="challenge__note" data-reveal>
-          <svg viewBox="0 0 64 48" aria-hidden="true">
-            <path d="M6 2c-4 22 8 38 50 36" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path d="M47 30l10 8-11 7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          Patrocinadores podem contribuir diretamente com os problemas que movem o desafio.
+          <div className="challenge__note-content">
+            <span className="challenge__note-badge">
+              <span className="challenge__note-dot" /> Patrocínio
+            </span>
+            <span className="challenge__note-text">
+              Patrocinadores podem contribuir diretamente com os problemas que movem o desafio.
+            </span>
+          </div>
+          <span className="challenge__note-cta">
+            Saiba mais <Icon name="arrow" size={16} className="arrow" />
+          </span>
         </a>
       </div>
     </section>
