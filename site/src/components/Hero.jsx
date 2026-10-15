@@ -43,6 +43,9 @@ export default function Hero() {
           <li>
             <Icon name="pin" size={18} /> {EVENT.venue} · {EVENT.city}
           </li>
+          <li>
+            <Icon name="check" size={18} /> Gratuito
+          </li>
         </ul>
 
         <div className="hero__ctas rise" style={{ '--i': 6 }}>

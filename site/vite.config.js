@@ -13,15 +13,17 @@ function eventJsonLd() {
     '@type': 'Event',
     name: EVENT.name,
     description:
-      `${EVENT.name} é um hackathon presencial de AI Agents no ${EVENT.venue}, em ${locality}, ` +
+      `${EVENT.name} é um hackathon presencial e gratuito de AI Agents no ${EVENT.venue}, em ${locality}, ` +
       `nos dias ${EVENT.dates}. ${EVENT.builders} participantes selecionados a partir das inscrições, ` +
       'dois dias de hacking e um Demo Day ao vivo.',
     url: SITE_URL,
+    image: [`${SITE_URL}og-image.jpg`],
     inLanguage: 'pt-BR',
     startDate: EVENT.start,
     endDate: EVENT.end,
     eventStatus: 'https://schema.org/EventScheduled',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    isAccessibleForFree: true,
     maximumAttendeeCapacity: Number(EVENT.builders),
     location: {
       '@type': 'Place',
@@ -42,6 +44,8 @@ function eventJsonLd() {
     offers: {
       '@type': 'Offer',
       url: LUMA.eventUrl,
+      price: 0,
+      priceCurrency: 'BRL',
       availability: 'https://schema.org/InStock',
       validFrom: EVENT.applicationsFrom,
       validThrough: EVENT.applicationsTo,

@@ -38,7 +38,7 @@ export default function Footer() {
           <div className="footer__col">
             <h2>Inscrição</h2>
             <a href={LUMA.eventUrl} target="_blank" rel="noreferrer">
-              Candidate-se no Luma <Icon name="arrowUpRight" size={16} />
+              Inscreva-se no Luma <Icon name="arrowUpRight" size={16} />
               <span className="visually-hidden"> (abre em nova aba)</span>
             </a>
           </div>

@@ -29,7 +29,7 @@ npm run preview   # serve the build locally
 - **Partner logos** (blurbs too): `src/components/Logos.jsx`, in the tiers of the
   event's partner chart. The event logo with "powered by Tako" (Tako bought naming rights)
   must always show; organizers (Ligia, Canastra) whenever possible; partners
-  (Porto Digital, CESAR, TAIL) and supporters (AWS, Featherless) when there is room.
+  (Porto Digital, CIn-UFPE, CESAR, TAIL) and supporters (AWS, Featherless) when there is room.
   `converge-logo.svg` is the official logo; the partner PNGs were cropped from the
   partner chart, the other SVGs come from the deck's logo sprite (`../index.html`).
 

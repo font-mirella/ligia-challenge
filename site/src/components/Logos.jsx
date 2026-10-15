@@ -2,6 +2,7 @@ import tako from '../assets/logos/tako.png';
 import ligia from '../assets/logos/ligia.svg';
 import canastra from '../assets/logos/canastra.svg';
 import portoDigital from '../assets/logos/porto-digital.png';
+import cinUfpe from '../assets/logos/cin-ufpe.png';
 import cesar from '../assets/logos/cesar.png';
 import tail from '../assets/logos/tail.svg';
 import aws from '../assets/logos/aws.svg';
@@ -62,6 +63,7 @@ export const ORGANIZERS = [
 
 export const PARTNERS = [
   { id: 'porto-digital', name: 'Porto Digital', src: portoDigital, width: 440, height: 160 },
+  { id: 'cin-ufpe', name: 'CIn-UFPE', src: cinUfpe, width: 523, height: 160 },
   { id: 'cesar', name: 'CESAR', src: cesar, width: 334, height: 200 },
   { id: 'tail', name: 'TAIL', src: tail, width: 398, height: 260 },
 ];

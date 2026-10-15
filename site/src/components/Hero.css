@@ -220,6 +220,7 @@
 
 .hero__logo-group--quiet .logo { --logo-h: 20px; }
 .hero__logo-group--quiet .logo--porto-digital { --logo-h: 22px; }
+.hero__logo-group--quiet .logo--cin-ufpe { --logo-h: 21px; }
 .hero__logo-group--quiet .logo--cesar { --logo-h: 24px; }
 .hero__logo-group--quiet .logo--featherless { --logo-h: 18px; gap: 7px; }
 
@@ -333,6 +334,7 @@
   .hero__logo-group--quiet .hero__logo-list { gap: 12px 18px; }
   .hero__logo-group--quiet .logo { --logo-h: 18px; }
   .hero__logo-group--quiet .logo--porto-digital { --logo-h: 20px; }
+  .hero__logo-group--quiet .logo--cin-ufpe { --logo-h: 19px; }
   .hero__logo-group--quiet .logo--cesar { --logo-h: 22px; }
   .hero__logo-group--quiet .logo--featherless { --logo-h: 16px; }
   .hero__logos .logo--tail { --h: 12px; }

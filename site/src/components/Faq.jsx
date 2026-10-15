@@ -9,12 +9,24 @@ const QUESTIONS = [
     a: 'Estudantes e profissionais de três áreas que querem construir com AI agents: tecnologia (desenvolvimento, engenharia e dados), empreendedorismo (founders e empreendedores) e design. O evento reúne talentos do Nordeste.',
   },
   {
+    q: 'Quanto custa?',
+    a: 'Nada. O Converge Challenge é totalmente gratuito, tanto a inscrição quanto a participação nos dois dias.',
+  },
+  {
     q: 'Quando e onde acontece?',
     a: `Presencialmente, no ${EVENT.venueAddress}, em ${EVENT.city}, nos dias ${EVENT.dates}, das ${EVENT.hours} nos dois dias.`,
   },
   {
     q: 'Como funciona a seleção?',
     a: `As inscrições vão de ${EVENT.applications}, pelo formulário no Luma. Os ${EVENT.builders} participantes do evento são selecionados a partir dessas inscrições.`,
+  },
+  {
+    q: 'Preciso ter um time?',
+    a: 'Não. Você pode se inscrever sozinho ou com seu time já formado, com até 5 pessoas. Quem vier sem time forma um na abertura do evento.',
+  },
+  {
+    q: 'O que devo levar?',
+    a: 'Seu notebook e carregador. O local não tem computadores disponíveis para os participantes.',
   },
   {
     q: 'O que vamos construir?',
@@ -86,7 +98,7 @@ export default function Faq() {
                       onClick={() => sync(isOpen ? -1 : i)}
                     >
                       <span className="faq__num" aria-hidden="true">
-                        0{i + 1}
+                        {String(i + 1).padStart(2, '0')}
                       </span>
                       <span className="faq__q">{q}</span>
                       <span className="faq__icon">

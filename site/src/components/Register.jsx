@@ -20,7 +20,7 @@ export default function Register() {
             Pronto para <em>convergir</em>?
           </h2>
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-            Inscrições abertas de <strong>{EVENT.applications}</strong>, pelo Luma. Entre os inscritos,{' '}
+            Inscrições <strong>gratuitas</strong>, de <strong>{EVENT.applications}</strong>, pelo Luma. Entre os inscritos,{' '}
             <strong>{EVENT.builders}&nbsp;participantes</strong> serão selecionados para passar dois dias construindo AI
             agents que fazem trabalho de verdade.
           </p>
@@ -29,7 +29,7 @@ export default function Register() {
             <li>
               <Icon name="clock" size={20} />
               <span>
-                <small>Inscrições</small>
+                <small>Inscrições gratuitas</small>
                 {EVENT.applications} · {EVENT.builders} participantes selecionados
               </span>
             </li>

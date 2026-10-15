@@ -82,7 +82,7 @@ export default function Nav() {
         </nav>
 
         <a href="#register" className="btn btn--sm nav__cta" onClick={close}>
-          Inscrever-se <Icon name="arrow" size={16} className="arrow" />
+          Inscreva-se <Icon name="arrow" size={16} className="arrow" />
         </a>
 
         <button
@@ -107,7 +107,7 @@ export default function Nav() {
           ))}
         </nav>
         <a href="#register" className="btn" onClick={close}>
-          Inscrever-se no Luma <Icon name="arrow" size={18} className="arrow" />
+          Inscreva-se <Icon name="arrow" size={18} className="arrow" />
         </a>
       </div>
 
