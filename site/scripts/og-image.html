@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Converge Challenge share image</title>
+<!--
+  Source of public/og-image.jpg (1200x630): event logo, partner logos and one still
+  frame of the hero's ASCII torus. Edit the logos below when partners change, then
+  render it from the site/ folder (needs `npm install` for the fonts):
+
+    google-chrome --headless=new --hide-scrollbars --allow-file-access-from-files \
+      --force-device-scale-factor=1 --virtual-time-budget=5000 --window-size=1200,630 \
+      --screenshot=og-image.png scripts/og-image.html
+
+  and save it as JPEG under ~300 KB (WhatsApp drops larger previews), e.g.
+    python3 -c "from PIL import Image; Image.open('og-image.png').convert('RGB').save('public/og-image.jpg', quality=88, optimize=True, progressive=True)"
+-->
+<style>
+  @font-face { font-family: 'Geist Mono Variable'; src: url('../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  @font-face { font-family: 'Geist Variable'; src: url('../node_modules/@fontsource-variable/geist/files/geist-latin-wght-normal.woff2') format('woff2'); font-weight: 100 900; }
+  html, body { margin: 0; }
+  .og {
+    position: relative; width: 1200px; height: 630px; overflow: hidden;
+    background:
+      radial-gradient(900px 640px at 78% 40%, rgba(29, 55, 135, 0.6), transparent 62%),
+      radial-gradient(520px 420px at 92% 88%, rgba(255, 90, 31, 0.18), transparent 65%),
+      linear-gradient(180deg, #081239 0%, #050b24 70%);
+    font-family: 'Geist Variable', sans-serif; color: #fff;
+  }
+  .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(234, 240, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(234, 240, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 20%, transparent 75%);
+  }
+  canvas {
+    position: absolute; left: 560px; top: -95px; width: 780px; height: 780px;
+    /* fade the torus where it meets the logo, like the hero mask */
+    -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, #000 34%);
+  }
+  .logo { position: absolute; left: 56px; top: 118px; width: 540px; }
+  .strip {
+    position: absolute; left: 0; right: 0; bottom: 0; height: 104px;
+    display: flex; align-items: center; gap: 22px; padding: 0 56px;
+    border-top: 1px solid rgba(234, 240, 255, 0.12);
+    background: rgba(5, 11, 36, 0.55); backdrop-filter: blur(10px);
+  }
+  .label { font-family: 'Geist Mono Variable', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(234, 240, 255, 0.6); white-space: nowrap; }
+  .group { display: flex; align-items: center; gap: 20px; }
+  .sep { width: 1px; height: 34px; background: rgba(234, 240, 255, 0.16); }
+  .group img { display: block; width: auto; }
+  .quiet img { filter: grayscale(1) brightness(1.6); opacity: 0.72; }
+  .tail { position: relative; width: calc(15px * 117 / 38); height: 15px; overflow: hidden; }
+  .tail img { position: absolute; left: calc(15px * -24 / 38); top: calc(15px * -205 / 38); height: calc(15px * 260 / 38); max-width: none; filter: brightness(0) invert(1); opacity: 0.72; }
+  .feather { display: flex; align-items: center; gap: 7px; font-weight: 600; font-size: 16px; letter-spacing: -0.02em; opacity: 0.72; }
+  .feather img { filter: grayscale(1) brightness(1.6); opacity: 1; }
+</style>
+</head>
+<body>
+<div class="og" id="og">
+  <div class="grid"></div>
+  <canvas id="torus" width="1560" height="1560"></canvas>
+  <img class="logo" src="../src/assets/logos/converge-logo.svg" alt="">
+  <div class="strip">
+    <span class="label">Organizado por</span>
+    <div class="group">
+      <img src="../src/assets/logos/ligia.svg" style="height:30px" alt="">
+      <img src="../src/assets/logos/canastra.svg" style="height:34px" alt="">
+    </div>
+    <span class="sep"></span>
+    <span class="label">Parceiros e apoio</span>
+    <div class="group quiet">
+      <img src="../src/assets/logos/porto-digital.png" style="height:24px" alt="">
+      <img src="../src/assets/logos/cin-ufpe.png" style="height:23px" alt="">
+      <img src="../src/assets/logos/cesar.png" style="height:26px" alt="">
+      <span class="tail"><img src="../src/assets/logos/tail.svg" alt=""></span>
+      <img src="../src/assets/logos/aws.svg" style="height:22px" alt="">
+      <span class="feather"><img src="../src/assets/logos/featherless.svg" style="height:19px" alt="">Featherless</span>
+    </div>
+  </div>
+</div>
+<script>
+// One still frame of the site's ASCII torus (same math, ramp and colours as AsciiTorus.jsx).
+document.fonts.ready.then(() => {
+  const RAMP = '.,:-=+*##%@', N = RAMP.length, TAU = Math.PI * 2, R1 = 1, R2 = 2.1, K2 = 6.5;
+  const canvas = document.getElementById('torus'), ctx = canvas.getContext('2d');
+  const W = 780, H = 780; ctx.scale(2, 2);
+  const cellW = 10.5, cellH = cellW * 1.62, cols = Math.ceil(W / cellW), rows = Math.ceil(H / cellH);
+  const zbuf = new Float32Array(cols * rows), lum = new Float32Array(cols * rows).fill(-1);
+  const colors = RAMP.split('').map((_, i) => { const t = i / (N - 1); return t > 0.86 ? `rgba(255,106,51,${0.75 + t * 0.25})` : `rgba(214,226,255,${(0.14 + t * 0.78).toFixed(3)})`; });
+  const A = 0.9, B = 0.35, cA = Math.cos(A), sA = Math.sin(A), cB = Math.cos(B), sB = Math.sin(B);
+  const scale = Math.min(W, H * 1.15) * 0.5 * (K2 / (R1 + R2));
+  for (let j = 0; j < 200; j++) {
+    const t = (j / 200) * TAU, ct = Math.cos(t), st = Math.sin(t), ox = R2 + R1 * ct, oy = R1 * st;
+    for (let i = 0; i < 720; i++) {
+      const p = (i / 720) * TAU, cp = Math.cos(p), sp = Math.sin(p);
+      const x = ox * (cB * cp + sA * sB * sp) - oy * cA * sB;
+      const y = ox * (sB * cp - sA * cB * sp) + oy * cA * cB;
+      const ooz = 1 / (K2 + cA * ox * sp + oy * sA);
+      const col = ((W / 2 + scale * ooz * x) / cellW) | 0, row = ((H / 2 - scale * ooz * y) / cellH) | 0;
+      if (col < 0 || col >= cols || row < 0 || row >= rows) continue;
+      const L = cp * ct * sB - cA * ct * sp - sA * st + cB * (cA * st - ct * sA * sp);
+      const k = row * cols + col;
+      if (ooz > zbuf[k]) { zbuf[k] = ooz; lum[k] = L; }
+    }
+  }
+  ctx.font = `600 ${(cellW * 1.5).toFixed(1)}px 'Geist Mono Variable', monospace`;
+  ctx.textBaseline = 'top';
+  for (let k = 0; k < lum.length; k++) {
+    if (lum[k] < 0) continue;
+    const b = Math.min(N - 1, ((lum[k] / 1.42) * N) | 0);
+    ctx.fillStyle = colors[b];
+    ctx.fillText(RAMP[b], (k % cols) * cellW, ((k / cols) | 0) * cellH);
+  }
+  document.title = 'ready';
+});
+</script>
+</body>
+</html>

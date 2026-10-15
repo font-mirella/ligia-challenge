@@ -1,4 +1,4 @@
-# Local reference assets, not part of the published deck
+# Local reference images (logos, screenshots) that are not part of the site
 *.jpeg
 *.jpg
 !site/public/og-image.jpg

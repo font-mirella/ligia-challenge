@@ -1,4 +1,5 @@
-# Publishes GitHub Pages: the deck at the root, the event site (built from site/) under /site/.
+# Publishes GitHub Pages: the event site (built from site/) under /site/, and a redirect at the root.
+# convergechallenge.cin.ufpe.br is a CIn proxy that serves the /site/ path, so keep the site there.
 name: Deploy to GitHub Pages
 
 on:
@@ -36,8 +37,23 @@ jobs:
       - name: Assemble Pages artifact
         run: |
           mkdir _site
-          rsync -a --exclude .git --exclude .github --exclude site --exclude _site ./ _site/
           cp -r site/dist _site/site
+          # The old institutional deck used to live at the root; send visitors to the official site.
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="pt-BR">
+            <head>
+              <meta charset="utf-8" />
+              <title>Converge Challenge</title>
+              <link rel="canonical" href="https://convergechallenge.cin.ufpe.br/" />
+              <meta http-equiv="refresh" content="0; url=https://convergechallenge.cin.ufpe.br/" />
+              <meta name="robots" content="noindex" />
+            </head>
+            <body>
+              <p>O Converge Challenge está em <a href="https://convergechallenge.cin.ufpe.br/">convergechallenge.cin.ufpe.br</a>.</p>
+            </body>
+          </html>
+          HTML
 
       - uses: actions/configure-pages@v6
 

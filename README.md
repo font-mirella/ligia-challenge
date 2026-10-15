@@ -1,58 +1,45 @@
-# Converge Challenge — Apresentação Institucional
+# Converge Challenge
 
-Deck institucional do **Converge Challenge**, um hackathon de AI Agents
-realizado no CIn-UFPE por Ligia, Canastra Ventures e TAIL (UFPB), reunindo
-talentos de Recife e João Pessoa.
+Site oficial do **Converge Challenge powered by Tako**, o hackathon de AI Agents
+do Nordeste: **https://convergechallenge.cin.ufpe.br**
 
-- **Quando:** data a definir
-- **Onde:** CIn-UFPE, Recife, PE
-- **Vagas:** 70 builders selecionados
+- **Quando:** 7 e 8 de novembro de 2026, das 09h às 17h
+- **Onde:** Porto Digital (Cais do Apolo, 222), Recife, PE
+- **Quem:** 100 participantes, estudantes e profissionais de tecnologia,
+  empreendedorismo e design, selecionados a partir das inscrições
+  (17 a 30 de outubro, pelo Luma). O evento é gratuito.
+- **Organização:** Ligia (CIn-UFPE) e Canastra Ventures
+- **Parceiros:** Porto Digital, CIn-UFPE, CESAR e TAIL · **Apoio:** AWS e Featherless
 
-## Como ver
+Os dados do evento usados no site ficam em
+[`site/src/config.js`](site/src/config.js); se algo mudar, comece por lá.
 
-O deck é um único arquivo HTML, sem dependências ou build. Abra `index.html`
-no navegador, ou acesse a versão publicada no GitHub Pages.
+## Repositório
 
-### Navegação
-
-| Ação | Tecla |
+| Caminho | O que é |
 |---|---|
-| Próximo slide | `→` &nbsp; `↓` &nbsp; `Espaço` |
-| Slide anterior | `←` &nbsp; `↑` |
-| Primeiro / último | `Home` / `End` |
+| [`site/`](site/) | O site do evento (Vite + React). Como rodar e editar: [`site/README.md`](site/README.md). |
+| [`.github/workflows/pages.yml`](.github/workflows/pages.yml) | Build e deploy no GitHub Pages a cada push na `main`. |
 
-Scroll do mouse e swipe no touch também funcionam. `F11` para tela cheia.
+## Deploy
 
-## PDF
+Cada push na `main` faz o build do site e publica no GitHub Pages, com o site
+em `/site/`. O proxy do CIn serve esse caminho em
+`convergechallenge.cin.ufpe.br`, então o site precisa continuar em `/site/`. A
+raiz do Pages (`automlsummerschool.cin.ufpe.br/ligia-challenge/`) só redireciona
+para o domínio oficial. O andamento de cada deploy aparece na aba **Actions**.
 
-Uma versão em PDF do deck (10 páginas, 16:9) está em
-[`converge-challenge-institucional.pdf`](converge-challenge-institucional.pdf).
+## Histórico
 
-Para regerar depois de editar o `index.html`:
+O deck institucional em HTML e seus PDFs ficavam na raiz do repositório e foram
+removidos em outubro de 2026, quando o site passou a ser a referência. Eles
+continuam no histórico do git:
 
 ```sh
-google-chrome --headless=new --no-pdf-header-footer \
-  --print-to-pdf=converge-challenge-institucional.pdf index.html
+git show 84a0d84:index.html > deck-antigo.html
 ```
-
-## Estrutura
-
-Os 10 slides ficam em `index.html` como elementos `<section class="slide">`,
-dimensionados num palco fixo de 1920×1080 que escala para qualquer janela.
-
-Todas as logos estão embutidas como um sprite SVG (`<symbol>` + `<use>`) no
-topo do `<body>`, então o deck funciona offline e sem imagens quebradas. Cada
-símbolo tem um comentário HTML com a URL de origem da logo. O wordmark
-"Converge Challenge" foi recortado do letterhead oficial (a paleta navy do
-`:root` também vem de lá).
-
-## Site do evento
-
-O site do Converge Challenge (Vite + React) fica em
-[`site/`](site/) e é publicado em `/site/` pelo GitHub Actions a cada push na
-`main`: https://automlsummerschool.cin.ufpe.br/ligia-challenge/site/. Veja
-[`site/README.md`](site/README.md) para rodar e editar.
 
 ## Contato
 
-[ligia@cin.ufpe.br](mailto:ligia@cin.ufpe.br)
+[ligia@cin.ufpe.br](mailto:ligia@cin.ufpe.br) ·
+[@ligia.ufpe](https://www.instagram.com/ligia.ufpe/)
