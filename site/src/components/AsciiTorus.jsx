@@ -76,7 +76,7 @@ export default function AsciiTorus({ className }) {
     // neighbouring cells even on the nearest side, so a big torus has no holes.
     // Small canvases keep the classic steps (0.016 / 0.055 rad).
     function buildTables() {
-      const reach = (Math.min(W, H * 1.15) * 0.5 * (K2 / (R1 + R2))) / (K2 - R1 - R2);
+      const reach = (Math.min(W, H * 1.15) * 0.375 * (K2 / (R1 + R2))) / (K2 - R1 - R2);
       const nPhi = Math.min(720, Math.max(393, Math.ceil((TAU * reach * (R1 + R2)) / cellW)));
       const nTheta = Math.min(200, Math.max(115, Math.ceil((TAU * reach * R1) / cellW)));
       cosP = new Float32Array(nPhi);
@@ -103,7 +103,7 @@ export default function AsciiTorus({ className }) {
       const sA = Math.sin(a);
       const cB = Math.cos(b);
       const sB = Math.sin(b);
-      const scale = Math.min(W, H * 1.15) * 0.5 * (K2 / (R1 + R2)) * (0.6 + 0.4 * intro);
+      const scale = Math.min(W, H * 1.15) * 0.375 * (K2 / (R1 + R2)) * (0.6 + 0.4 * intro);
       const cx = W / 2;
       const cy = H / 2;
       const sAsB = sA * sB;

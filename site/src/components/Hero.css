@@ -60,8 +60,8 @@
 .hero__torus {
   position: absolute;
   top: 50%;
-  right: max(-15vw, calc((100vw - 1500px) / 2 - 15vw));
-  width: min(76vw, 1120px);
+  right: max(-20vw, calc((100vw - 1500px) / 2 - 20vw));
+  width: min(150vw, 1400px);
   max-width: none;
   aspect-ratio: 1;
   transform: translateY(-50%);
