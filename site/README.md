@@ -1,7 +1,7 @@
 # Converge Challenge — Site
 
-Event website for **Converge Challenge**, the AI Agents hackathon organized by
-Ligia (CIn-UFPE), TAIL (UFPB) and Canastra Ventures. Built with Vite + React,
+Event website for **Converge Challenge**, the AI Agents hackathon powered by Tako
+and organized by Ligia (CIn-UFPE) and Canastra Ventures. Built with Vite + React,
 same stack as the HackaWoman site.
 
 ## Run
@@ -19,13 +19,19 @@ npm run preview   # serve the build locally
 - **Event facts** (dates, hours, venue, number of builders), the **Luma links**
   and the **contact email** all live in [`src/config.js`](src/config.js).
   Every section reads from there.
+- **SEO:** the `<head>` gets a schema.org `Event` (JSON-LD) built from `config.js`
+  by a small plugin in `vite.config.js`. The public URL (`SITE_URL`) is repeated in
+  `index.html` (canonical, `og:url`), `public/robots.txt` and `public/sitemap.xml`.
 - **Schedule:** `DAYS` in `src/components/Schedule.jsx`.
 - **FAQ:** `QUESTIONS` in `src/components/Faq.jsx`.
 - **Sponsorship tiers** (benefits only, no prices): `TIERS` in
   `src/components/Sponsor.jsx`.
-- **Organizers and supporters** (logos and blurbs): `src/components/Logos.jsx`.
-  The SVGs in `src/assets/logos/` were extracted from the deck's logo sprite
-  (`../index.html`).
+- **Partner logos** (blurbs too): `src/components/Logos.jsx`, in the tiers of the
+  event's partner chart. The event logo with "powered by Tako" (Tako bought naming rights)
+  must always show; organizers (Ligia, Canastra) whenever possible; partners
+  (Porto Digital, CESAR, TAIL) and supporters (AWS, Featherless) when there is room.
+  `converge-logo.svg` is the official logo; the partner PNGs were cropped from the
+  partner chart, the other SVGs come from the deck's logo sprite (`../index.html`).
 
 ## Structure
 

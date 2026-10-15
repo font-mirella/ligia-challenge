@@ -73,24 +73,34 @@ export default function Sponsor() {
           </div>
         </div>
 
-        <div className="sponsor__tiers">
-          {TIERS.map((t, i) => (
-            <article key={t.name} className="sponsor__tier spotlight" data-reveal style={{ '--d': `${i * 120}ms` }}>
-              <header>
-                <span className="sponsor__tier-label">Nível</span>
-                <h3>{t.name}</h3>
-              </header>
-              {t.intro && <p className="sponsor__tier-intro">{t.intro}</p>}
-              <ul>
-                {t.perks.map((p, k) => (
-                  <li key={k}>
-                    <Icon name="plus" size={16} stroke={2.2} />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+        <div className="sponsor__side">
+          <div className="sponsor__tiers">
+            {TIERS.map((t, i) => (
+              <article key={t.name} className="sponsor__tier spotlight" data-reveal style={{ '--d': `${i * 120}ms` }}>
+                <header>
+                  <span className="sponsor__tier-label">Nível</span>
+                  <h3>{t.name}</h3>
+                </header>
+                {t.intro && <p className="sponsor__tier-intro">{t.intro}</p>}
+                <ul>
+                  {t.perks.map((p, k) => (
+                    <li key={k}>
+                      <Icon name="plus" size={16} stroke={2.2} />
+                      <span>{p}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div className="sponsor__vision" data-reveal>
+            <p className="sponsor__vision-tag">Esta é só a 1ª edição: em 2027, o Converge Challenge volta maior.</p>
+            <p className="sponsor__vision-text">
+              Queremos <em>construir uma marca</em> e levar este evento a outros polos da região, incentivando{' '}
+              <em>talentos do Nordeste</em> a resolver problemas reais de grandes mercados.
+            </p>
+          </div>
         </div>
       </div>
     </section>

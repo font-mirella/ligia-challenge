@@ -90,6 +90,7 @@ export default function Challenge() {
         <div className="challenge__term" ref={termRef} data-reveal>
           <Terminal
             title={`~/converge/${agent.id}`}
+            label={agent.title}
             lines={agent.lines}
             play={inView}
             onDone={() => setActive((i) => (i + 1) % AGENTS.length)}

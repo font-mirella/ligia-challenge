@@ -16,12 +16,16 @@
   --orange-hot: #ff4415;
   --orange-soft: #ff8a5b;
   --orange-glow: rgba(255, 90, 31, 0.35);
+  /* Orange text on paper/white surfaces, where --orange is under WCAG AA:
+     small text (4.5:1 on --paper) and large display text (3:1). */
+  --orange-on-light: #c2410c;
+  --orange-on-light-lg: #e04a12;
 
   --paper: #eef1f8;
   --paper-2: #e3e8f4;
   --ink: #eaf0ff;
   --ink-dim: rgba(234, 240, 255, 0.7);
-  --ink-mute: rgba(234, 240, 255, 0.45);
+  --ink-mute: rgba(234, 240, 255, 0.55);
   --ink-navy: #0a1640;
   --ink-navy-dim: rgba(10, 22, 64, 0.68);
   --line: rgba(234, 240, 255, 0.12);
@@ -50,6 +54,8 @@
 html {
   color-scheme: dark;
   scroll-behavior: smooth;
+  /* Keeps anchor targets and keyboard-focused elements clear of the fixed nav. */
+  scroll-padding-top: calc(var(--nav-h) - 1px);
   -webkit-text-size-adjust: 100%;
 }
 
@@ -110,10 +116,6 @@ p {
   outline: 2px solid var(--orange);
   outline-offset: 3px;
   border-radius: 6px;
-}
-
-section[id] {
-  scroll-margin-top: calc(var(--nav-h) - 1px);
 }
 
 .skip-link {
@@ -215,6 +217,18 @@ section[id] {
 
 .section--paper .lede {
   color: var(--ink-navy-dim);
+}
+
+.section--paper .eyebrow {
+  color: var(--orange-on-light);
+}
+
+.section--paper .title em {
+  color: var(--orange-on-light-lg);
+}
+
+.section--paper :focus-visible {
+  outline-color: var(--orange-on-light);
 }
 
 .lede strong {
@@ -411,6 +425,12 @@ section[id] {
   white-space: pre;
   pointer-events: none;
   user-select: none;
+}
+
+/* The art lives in data-art and is drawn as generated content, so thousands of
+   decorative glyphs stay out of the page text that crawlers and copy see. */
+.ascii-bg[data-art]::before {
+  content: attr(data-art);
 }
 
 /* ---------- misc ---------- */

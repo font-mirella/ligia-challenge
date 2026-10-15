@@ -22,6 +22,11 @@
   transform: translateY(-100%);
 }
 
+/* Never hide the bar while keyboard focus is inside it. */
+.nav.is-hidden:focus-within {
+  transform: none;
+}
+
 .nav__inner {
   height: 100%;
   display: flex;
@@ -30,14 +35,33 @@
 }
 
 .nav__brand img {
-  height: 30px;
+  height: 46px;
   width: auto;
 }
 
+/* At the top of the page the links sit on a small frosted pill, so the hero
+   torus can pass behind the header and stay a soft blur instead of competing
+   with the text. Once scrolled, the whole bar is glass and the pill dissolves. */
 .nav__links {
   display: flex;
-  gap: 4px;
+  gap: 2px;
   margin-left: auto;
+  padding: 4px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(5, 11, 36, 0.4);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
+  backdrop-filter: blur(14px) saturate(130%);
+  transition:
+    background-color 0.4s,
+    border-color 0.4s;
+}
+
+.nav.is-scrolled .nav__links {
+  background-color: transparent;
+  border-color: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .nav__links a {
@@ -82,6 +106,16 @@
   border-radius: 50%;
   place-items: center;
   box-shadow: inset 0 0 0 1px var(--line-strong);
+  background: rgba(5, 11, 36, 0.4);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.nav.is-scrolled .nav__toggle,
+.nav.is-open .nav__toggle {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .nav__progress {
@@ -178,6 +212,6 @@
   }
 
   .nav__brand img {
-    height: 26px;
+    height: 40px;
   }
 }

@@ -9,9 +9,7 @@ const ORB = asciiOrb(110, 52);
 export default function Register() {
   return (
     <section id="register" className="section register" aria-labelledby="register-title">
-      <pre className="ascii-bg register__orb" aria-hidden="true">
-        {ORB}
-      </pre>
+      <pre className="ascii-bg register__orb" data-art={ORB} aria-hidden="true" />
 
       <div className="container register__grid">
         <div className="register__text">
@@ -22,36 +20,45 @@ export default function Register() {
             Pronto para <em>convergir</em>?
           </h2>
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
-            Inscrições abertas no Luma. <strong>{EVENT.builders}&nbsp;builders</strong> serão selecionados para passar
-            dois dias construindo AI agents que fazem trabalho de verdade.
+            Inscrições abertas de <strong>{EVENT.applications}</strong>, pelo Luma. Entre os inscritos,{' '}
+            <strong>{EVENT.builders}&nbsp;participantes</strong> serão selecionados para passar dois dias construindo AI
+            agents que fazem trabalho de verdade.
           </p>
 
           <ul className="register__facts" data-reveal style={{ '--d': '220ms' }}>
             <li>
+              <Icon name="clock" size={20} />
+              <span>
+                <small>Inscrições</small>
+                {EVENT.applications} · {EVENT.builders} participantes selecionados
+              </span>
+            </li>
+            <li>
               <Icon name="calendar" size={20} />
               <span>
                 <small>Quando</small>
-                {EVENT.dates}, {EVENT.hours}
+                {EVENT.dates}, das {EVENT.hours}
               </span>
             </li>
             <li>
               <Icon name="pin" size={20} />
               <span>
                 <small>Onde</small>
-                {EVENT.venue}, Cais do Apolo, 222 · {EVENT.city}
+                {EVENT.venueAddress} · {EVENT.city}
               </span>
             </li>
             <li>
               <Icon name="users" size={20} />
               <span>
                 <small>Quem</small>
-                Seleção prévia · vagas limitadas
+                Tecnologia, empreendedorismo e design · estudantes e profissionais
               </span>
             </li>
           </ul>
 
           <a href={LUMA.eventUrl} target="_blank" rel="noreferrer" className="text-link" data-reveal>
             Abrir o evento no Luma <Icon name="arrowUpRight" size={16} />
+            <span className="visually-hidden"> (abre em nova aba)</span>
           </a>
         </div>
 
@@ -63,7 +70,7 @@ export default function Register() {
                 <i />
                 <i />
               </span>
-              <ScrambleText text="luma.com/converge-challenge" className="register__url" />
+              <ScrambleText text={LUMA.eventUrl.replace(/^https?:\/\//, '')} className="register__url" />
             </div>
             <iframe
               src={LUMA.embedUrl}

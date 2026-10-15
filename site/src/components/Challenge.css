@@ -23,7 +23,7 @@
 }
 
 .challenge__title em {
-  color: var(--orange);
+  color: var(--orange-on-light-lg);
 }
 
 .challenge__kicker {
@@ -63,7 +63,7 @@
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 600;
-  color: var(--orange);
+  color: var(--orange-on-light);
 }
 
 .challenge__card-title {
@@ -85,7 +85,7 @@
   padding-top: 10px;
   font-family: var(--font-mono);
   font-size: 12px;
-  color: rgba(10, 22, 64, 0.45);
+  color: rgba(10, 22, 64, 0.62);
 }
 
 .challenge__note {
@@ -107,7 +107,7 @@
 }
 
 .challenge__note:hover {
-  color: var(--orange-hot);
+  color: var(--orange-on-light);
 }
 
 .challenge__note:hover svg {

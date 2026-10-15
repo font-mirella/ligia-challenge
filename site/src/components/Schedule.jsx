@@ -8,6 +8,8 @@ const DAYS = [
     weekday: 'Sáb',
     day: '07',
     month: 'novembro de 2026',
+    date: '2026-11-07',
+    label: 'Sábado, 7 de novembro de 2026',
     theme: 'Abertura & construção',
     items: [
       ['08:30', 'Abertura das portas & check-in', 'Credenciamento e entrega de crachás para todos os participantes.'],
@@ -22,6 +24,8 @@ const DAYS = [
     weekday: 'Dom',
     day: '08',
     month: 'novembro de 2026',
+    date: '2026-11-08',
+    label: 'Domingo, 8 de novembro de 2026',
     theme: 'Finalizar & Demo Day',
     items: [
       ['09:00', 'Retomada do hacking', 'De volta à construção para a reta final.'],
@@ -80,7 +84,12 @@ export default function Schedule() {
         <div className="schedule__days" ref={listRef}>
           {DAYS.map((d, di) => (
             <article className="schedule__day" key={d.day} data-reveal style={{ '--d': `${di * 120}ms` }}>
-              <header className="schedule__date">
+              {/* The visual date block is abbreviated ("Sáb 07"); screen readers and the
+                  heading outline get the full date as this day's heading instead. */}
+              <h3 className="visually-hidden">
+                {d.label}: {d.theme}
+              </h3>
+              <header className="schedule__date" aria-hidden="true">
                 <span className="schedule__weekday">{d.weekday}</span>
                 <span className="schedule__num">{d.day}</span>
                 <span className="schedule__month">
@@ -92,9 +101,9 @@ export default function Schedule() {
               <ol className="schedule__items">
                 {d.items.map(([time, title, text]) => (
                   <li key={time + title} className="schedule__item">
-                    <time>{time}</time>
+                    <time dateTime={`${d.date}T${time}-03:00`}>{time}</time>
                     <div>
-                      <h3>{title}</h3>
+                      <h4>{title}</h4>
                       <p>{text}</p>
                     </div>
                   </li>

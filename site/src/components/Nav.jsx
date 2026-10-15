@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { NAV_LINKS } from '../config.js';
-import wordmark from '../assets/logos/converge-wordmark.svg';
+import logo from '../assets/logos/converge-logo.svg';
 import Icon from './Icon.jsx';
 import './Nav.css';
 
@@ -69,8 +69,8 @@ export default function Nav() {
   return (
     <header className={`nav ${scrolled ? 'is-scrolled' : ''} ${hidden && !open ? 'is-hidden' : ''} ${open ? 'is-open' : ''}`}>
       <div className="nav__inner container">
-        <a href="#top" className="nav__brand" onClick={close} aria-label="Converge Challenge, voltar ao topo">
-          <img src={wordmark} alt="" width="696" height="191" />
+        <a href="#top" className="nav__brand" onClick={close} aria-label="Converge Challenge powered by Tako, voltar ao topo">
+          <img src={logo} alt="" width="1080" height="503" />
         </a>
 
         <nav className="nav__links" aria-label="Principal">
@@ -98,10 +98,10 @@ export default function Nav() {
       </div>
 
       <div id="mobile-menu" className="nav__sheet" hidden={!open}>
-        <nav aria-label="Móvel">
+        <nav aria-label="Menu principal">
           {NAV_LINKS.map(({ id, label }, i) => (
             <a key={id} href={`#${id}`} onClick={close} style={{ '--i': i }}>
-              <span>0{i + 1}</span>
+              <span aria-hidden="true">0{i + 1}</span>
               {label}
             </a>
           ))}

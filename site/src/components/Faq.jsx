@@ -6,15 +6,15 @@ import './Faq.css';
 const QUESTIONS = [
   {
     q: 'Quem pode se inscrever?',
-    a: 'Estudantes de TI (graduação e pós), desenvolvedores e builders, designers e fundadores que querem construir com AI agents. O evento reúne talentos de Recife e João Pessoa.',
+    a: 'Estudantes e profissionais de três áreas que querem construir com AI agents: tecnologia (desenvolvimento, engenharia e dados), empreendedorismo (founders e empreendedores) e design. O evento reúne talentos do Nordeste.',
   },
   {
     q: 'Quando e onde acontece?',
-    a: `Presencial no ${EVENT.venue}, ${EVENT.city}, nos dias ${EVENT.dates}, das ${EVENT.hours} nos dois dias.`,
+    a: `Presencialmente, no ${EVENT.venueAddress}, em ${EVENT.city}, nos dias ${EVENT.dates}, das ${EVENT.hours} nos dois dias.`,
   },
   {
     q: 'Como funciona a seleção?',
-    a: `Inscreva-se pelo formulário no Luma. Os participantes são selecionados com antecedência: ${EVENT.builders} builders vão participar.`,
+    a: `As inscrições vão de ${EVENT.applications}, pelo formulário no Luma. Os ${EVENT.builders} participantes do evento são selecionados a partir dessas inscrições.`,
   },
   {
     q: 'O que vamos construir?',
@@ -85,7 +85,9 @@ export default function Faq() {
                       aria-controls={`faq-a-${i}`}
                       onClick={() => sync(isOpen ? -1 : i)}
                     >
-                      <span className="faq__num">0{i + 1}</span>
+                      <span className="faq__num" aria-hidden="true">
+                        0{i + 1}
+                      </span>
                       <span className="faq__q">{q}</span>
                       <span className="faq__icon">
                         <Icon name="plus" size={18} stroke={2} />

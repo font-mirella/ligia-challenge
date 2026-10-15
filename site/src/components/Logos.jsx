@@ -1,10 +1,32 @@
+import tako from '../assets/logos/tako.png';
 import ligia from '../assets/logos/ligia.svg';
-import tail from '../assets/logos/tail.svg';
 import canastra from '../assets/logos/canastra.svg';
+import portoDigital from '../assets/logos/porto-digital.png';
+import cesar from '../assets/logos/cesar.png';
+import tail from '../assets/logos/tail.svg';
 import aws from '../assets/logos/aws.svg';
-import render from '../assets/logos/render.svg';
 import featherless from '../assets/logos/featherless.svg';
 import './Logos.css';
+
+// Partner tiers, from the event's partner chart:
+// - Tako bought naming rights: it always appears next to the event logo (see converge-logo.svg).
+// - Organizers: show whenever possible.
+// - Partners and supporters: endorsement only, show when there is room.
+
+export const POWERED_BY = {
+  id: 'tako',
+  name: 'Tako',
+  src: tako,
+  width: 453,
+  height: 120,
+  url: 'https://tako.ai/',
+  blurb: (
+    <>
+      Uma startup brasileira que usa <strong>agentes de IA</strong> para operar a{' '}
+      <strong>folha de pagamento e o RH</strong> das empresas, da admissão ao desligamento.
+    </>
+  ),
+};
 
 export const ORGANIZERS = [
   {
@@ -18,20 +40,6 @@ export const ORGANIZERS = [
       <>
         A liga acadêmica de Inteligência Artificial do <strong>CIn-UFPE</strong>, formada por estudantes e
         pesquisadores focados em <strong>IA e suas aplicações em problemas reais</strong>.
-      </>
-    ),
-  },
-  {
-    id: 'tail',
-    name: 'TAIL',
-    src: tail,
-    width: 398,
-    height: 260,
-    url: 'https://tail-tech.com/',
-    blurb: (
-      <>
-        Liga de <strong>estudantes e professores da UFPB</strong> dedicada à{' '}
-        <strong>pesquisa e ao ensino de IA</strong>, da graduação ao doutorado.
       </>
     ),
   },
@@ -52,10 +60,16 @@ export const ORGANIZERS = [
   },
 ];
 
+export const PARTNERS = [
+  { id: 'porto-digital', name: 'Porto Digital', src: portoDigital, width: 440, height: 160 },
+  { id: 'cesar', name: 'CESAR', src: cesar, width: 334, height: 200 },
+  { id: 'tail', name: 'TAIL', src: tail, width: 398, height: 260 },
+];
+
+// Gave tools and prizes to the participants.
 export const SUPPORTERS = [
-  { id: 'featherless', name: 'Featherless', src: featherless, width: 200, height: 200, label: true },
   { id: 'aws', name: 'AWS', src: aws, width: 304, height: 182 },
-  { id: 'render', name: 'Render', src: render, width: 24, height: 24, label: true },
+  { id: 'featherless', name: 'Featherless', src: featherless, width: 200, height: 200, label: true },
 ];
 
 // One logo, optionally followed by its name for icon-only marks.

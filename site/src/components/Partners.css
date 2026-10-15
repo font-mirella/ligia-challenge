@@ -4,9 +4,9 @@
 
 .partners__orgs {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
-  margin: 0;
+  margin: 14px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -35,10 +35,6 @@
 }
 
 .partners__logo .logo--ligia { --logo-h: 44px; }
-.partners__logo .logo--tail { --logo-h: 84px; }
-
-/* the deck shows TAIL in white on navy */
-.partners__logo .logo--tail img { filter: brightness(0) invert(1); }
 .partners__logo .logo--canastra { --logo-h: 50px; }
 
 .partners__org p {
@@ -64,7 +60,7 @@
   color: var(--orange);
 }
 
-.partners__supporters {
+.partners__row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -76,7 +72,64 @@
   border: 1px solid var(--line);
 }
 
+/* Powered by: label | logo | blurb + link, stacked on narrow screens. */
+.partners__row--featured {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  margin-top: 0;
+  border-color: rgba(255, 90, 31, 0.35);
+  background:
+    radial-gradient(600px 200px at 0% 50%, rgba(255, 90, 31, 0.12), transparent 70%),
+    var(--navy-800);
+}
+
+.partners__featured-logo {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.4s;
+}
+
+.partners__featured-logo:hover {
+  opacity: 0.8;
+}
+
+.partners__featured-logo .logo--tako { --logo-h: 44px; }
+
+.partners__featured-body {
+  display: grid;
+  justify-items: start;
+  gap: 14px;
+  padding-left: clamp(24px, 3vw, 40px);
+  border-left: 1px solid var(--line);
+}
+
+.partners__featured-body p {
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  color: var(--ink-dim);
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+.partners__featured-body p strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.partners__featured-link {
+  font-size: 12px;
+  padding-bottom: 3px;
+}
+
+.partners__featured-link svg {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.partners__featured-link:hover svg {
+  transform: translate(2px, -2px);
+}
+
 .partners__label {
+  min-width: 9.5em;
   font-family: var(--font-mono);
   font-size: 13px;
   letter-spacing: 0.14em;
@@ -84,16 +137,18 @@
   color: var(--orange);
 }
 
-.partners__supporter-logos {
+.partners__row-logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 24px clamp(28px, 4vw, 56px);
 }
 
-.partners__supporter-logos .logo--aws { --logo-h: 38px; }
-.partners__supporter-logos .logo--render { --logo-h: 30px; }
-.partners__supporter-logos .logo--featherless { --logo-h: 32px; }
+.partners__row-logos .logo--porto-digital { --logo-h: 42px; }
+.partners__row-logos .logo--cesar { --logo-h: 50px; }
+.partners__row-logos .logo--tail { --logo-h: 84px; }
+.partners__row-logos .logo--aws { --logo-h: 38px; }
+.partners__row-logos .logo--featherless { --logo-h: 32px; }
 
 .partners__more {
   margin-left: auto;
@@ -109,5 +164,18 @@
 
   .partners__more {
     margin-left: 0;
+  }
+
+  .partners__row--featured {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+    gap: 20px;
+  }
+
+  .partners__featured-body {
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    justify-self: stretch;
   }
 }

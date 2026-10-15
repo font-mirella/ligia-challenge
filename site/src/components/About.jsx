@@ -6,7 +6,7 @@ import ScrambleText from './ScrambleText.jsx';
 import './About.css';
 
 const STATS = [
-  { value: EVENT.builders, label: 'Builders selecionados' },
+  { value: EVENT.builders, label: 'Participantes selecionados' },
   { value: '8–16h', label: 'De hacking intensivo' },
   { value: '2', label: `Dias no ${EVENT.venue}` },
   { value: '1', label: 'Demo Day com pitches ao vivo' },
@@ -32,11 +32,6 @@ export default function About() {
               <strong>talentos de IA, engenheiros, designers e fundadores</strong> criando soluções reais com{' '}
               <strong>AI Agents</strong>. Conecta o talento acadêmico e tech de <strong>Recife</strong> e{' '}
               <strong>João Pessoa</strong> ao ecossistema nacional de IA.
-            </p>
-            <p className="about__mission" data-reveal style={{ '--d': '240ms' }}>
-              Queremos <span className="hl">construir uma marca</span> e levar este evento a outros polos da região,
-              incentivando <span className="hl">talentos do Nordeste a resolver problemas reais de grandes mercados</span>
-              .
             </p>
           </div>
 

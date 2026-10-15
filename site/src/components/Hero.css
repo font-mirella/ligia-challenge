@@ -31,15 +31,40 @@
   -webkit-mask-image: radial-gradient(ellipse 80% 70% at 60% 40%, #000 20%, transparent 75%);
 }
 
+/* The torus is free to drift behind the nav, the title and the logo strip.
+   This layer's mask dims it wherever it sits under copy (left text column and
+   the nav band); the nav pill and the logo strip add frosted glass on top.
+   Mask alpha = how much of the torus shows through. */
+.hero__art {
+  --col-end: calc(max(var(--gutter), (100% - var(--max)) / 2) + 620px);
+  --veil-x: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.24) calc(var(--col-end) - 150px),
+    #000 calc(var(--col-end) + 180px)
+  );
+  --veil-y: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.34) calc(var(--nav-h) - 12px),
+    #000 calc(var(--nav-h) + 120px)
+  );
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  -webkit-mask-image: var(--veil-x), var(--veil-y);
+  mask-image: var(--veil-x), var(--veil-y);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
 .hero__torus {
   position: absolute;
-  z-index: -1;
   top: 50%;
-  right: max(-11vw, calc((100vw - 1500px) / 2 - 11vw));
-  width: min(58vw, 940px);
+  right: max(-15vw, calc((100vw - 1500px) / 2 - 15vw));
+  width: min(76vw, 1120px);
+  max-width: none;
   aspect-ratio: 1;
-  transform: translateY(-52%);
-  pointer-events: none;
+  transform: translateY(-50%);
 }
 
 .hero__inner {
@@ -53,8 +78,9 @@
 
 .hero__badge {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 4px 10px;
   padding: 8px 16px 8px 12px;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
@@ -68,6 +94,11 @@
   color: var(--ink-dim);
 }
 
+/* each part stays on one line; on narrow screens the badge wraps between parts */
+.hero__badge span {
+  white-space: nowrap;
+}
+
 .hero__dot {
   width: 8px;
   height: 8px;
@@ -78,21 +109,14 @@
 }
 
 .hero__title {
-  display: grid;
   margin-top: 6px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: clamp(3.5rem, 9.2vw, 8.4rem);
-  line-height: 0.9;
-  letter-spacing: -0.065em;
+  /* breathing room between the logo and the tagline (adds to the 22px gap) */
+  margin-bottom: clamp(12px, 1.2vw + 1vh, 30px);
 }
 
-.hero__line:nth-child(1) {
-  --i: 1;
-}
-
-.hero__line:nth-child(2) {
-  --i: 2;
+.hero__title img {
+  width: clamp(260px, 44vw, 600px);
+  height: auto;
 }
 
 .hero__sub {
@@ -123,7 +147,10 @@
   gap: 8px;
   padding: 8px 14px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  /* frosted, so the torus behind a long venue line blurs instead of crossing the text */
+  background: rgba(14, 26, 74, 0.45);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--line);
   font-family: var(--font-mono);
   font-size: 13.5px;
@@ -141,20 +168,45 @@
   margin-top: 8px;
 }
 
+/* ---------- logo strip ----------
+   Frosted band across the foot of the hero, so the torus can pass behind it.
+   Hierarchy: organizers in full colour and size; partners and supporters share
+   one label, smaller and muted (they light up on hover). */
+.hero__strip {
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(5, 11, 36, 0.32), rgba(5, 11, 36, 0.62));
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  backdrop-filter: blur(14px) saturate(120%);
+}
+
 .hero__logos {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 20px 56px;
-  padding-block: 26px 40px;
-  border-top: 1px solid var(--line);
+  gap: 16px 40px;
+  padding-block: 22px 24px;
 }
 
 .hero__logo-group {
   display: flex;
+  align-items: center;
+  gap: 10px 22px;
+}
+
+.hero__logo-group--quiet {
+  padding-left: 40px;
+  border-left: 1px solid var(--line);
+}
+
+.hero__logo-list {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px 28px;
+  gap: 14px 28px;
+}
+
+.hero__logo-group--quiet .hero__logo-list {
+  gap: 12px 24px;
 }
 
 .hero__logo-label {
@@ -162,12 +214,48 @@
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  white-space: nowrap;
   color: var(--ink-mute);
 }
 
+.hero__logo-group--quiet .logo { --logo-h: 20px; }
+.hero__logo-group--quiet .logo--porto-digital { --logo-h: 22px; }
+.hero__logo-group--quiet .logo--cesar { --logo-h: 24px; }
+.hero__logo-group--quiet .logo--featherless { --logo-h: 18px; gap: 7px; }
+
+.hero__logo-group--quiet .logo--mono {
+  opacity: 0.5;
+}
+
+.hero__logo-group--quiet .logo--mono:hover,
+.hero__logo-group--quiet .logo--mono:focus-within {
+  opacity: 1;
+}
+
+/* TAIL: show only the "TAIL" wordmark. Its net mark and two-line tagline turn
+   into noise at strip size. Crop box in the 398x260 artwork: x 24-141, y 205-243. */
+.hero__logos .logo--tail {
+  --h: 13px;
+  position: relative;
+  width: calc(var(--h) * 117 / 38);
+  height: var(--h);
+  overflow: hidden;
+}
+
+.hero__logos .logo--tail img {
+  position: absolute;
+  left: calc(var(--h) * -24 / 38);
+  top: calc(var(--h) * -205 / 38);
+  height: calc(var(--h) * 260 / 38);
+  max-width: none;
+}
+
 /* load-in choreography */
+/* fill "backwards", not "both": once done, the animation must stop applying,
+   or the lingering opacity effect turns .hero__meta into a backdrop root and
+   the frosted pills inside it stop blurring the torus */
 .rise {
-  animation: rise 1.4s var(--ease-out) both;
+  animation: rise 1.4s var(--ease-out) backwards;
   animation-delay: calc(120ms + var(--i, 0) * 90ms);
 }
 
@@ -179,20 +267,45 @@
 }
 
 @media (max-width: 1080px) {
+  /* text spans most of the width: keep the whole torus dim, a bit brighter on the right */
+  .hero__art {
+    --veil-x: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 30%, rgba(0, 0, 0, 0.6));
+  }
+
   .hero__torus {
-    top: 34%;
-    right: -30vw;
-    width: 110vw;
-    opacity: 0.42;
+    top: 36%;
+    right: -34vw;
+    width: 104vw;
+  }
+
+  /* two stacked rows, no divider */
+  .hero__logos {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .hero__logo-group--quiet {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .hero__logo-label {
+    min-width: 12.5em;
   }
 }
 
 @media (max-width: 640px) {
+  /* the copy fills the width: park the torus up in the top-right corner, where
+     it arcs behind the nav, the badge and the empty space beside the title */
+  .hero__art {
+    --veil-x: linear-gradient(90deg, rgba(0, 0, 0, 0.26) 35%, rgba(0, 0, 0, 0.46));
+  }
+
   .hero__torus {
-    top: 20%;
-    right: -45vw;
-    width: 135vw;
-    opacity: 0.3;
+    top: calc(var(--nav-h) + 56px);
+    right: -64vw;
+    width: 150vw;
   }
 
   .hero__ctas .btn {
@@ -200,10 +313,27 @@
   }
 
   .hero__logos {
-    gap: 22px;
+    gap: 16px;
+    padding-block: 20px 26px;
+  }
+
+  .hero__logo-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .hero__logo-label {
-    flex-basis: 100%;
+    min-width: 0;
   }
+
+  .hero__logo-group--lead .logo--ligia { --logo-h: 27px; }
+  .hero__logo-group--lead .logo--canastra { --logo-h: 31px; }
+
+  .hero__logo-group--quiet .hero__logo-list { gap: 12px 18px; }
+  .hero__logo-group--quiet .logo { --logo-h: 18px; }
+  .hero__logo-group--quiet .logo--porto-digital { --logo-h: 20px; }
+  .hero__logo-group--quiet .logo--cesar { --logo-h: 22px; }
+  .hero__logo-group--quiet .logo--featherless { --logo-h: 16px; }
+  .hero__logos .logo--tail { --h: 12px; }
 }

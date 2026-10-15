@@ -1,5 +1,5 @@
 import { CONTACT, EVENT, LUMA, NAV_LINKS } from '../config.js';
-import wordmark from '../assets/logos/converge-wordmark.svg';
+import logo from '../assets/logos/converge-logo.svg';
 import Icon from './Icon.jsx';
 import './Footer.css';
 
@@ -9,9 +9,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer__top">
           <div className="footer__brand">
-            <img src={wordmark} alt="Converge Challenge" width="696" height="191" loading="lazy" />
+            <img src={logo} alt="Converge Challenge, powered by Tako" width="1080" height="503" loading="lazy" />
             <p>
-              O hackathon de AI Agents do Nordeste. {EVENT.dates} · {EVENT.venue}, Cais do Apolo, 222, {EVENT.city}.
+              O hackathon de AI Agents do Nordeste. {EVENT.dates} · {EVENT.venueAddress}, {EVENT.city}.
             </p>
           </div>
 
@@ -31,6 +31,7 @@ export default function Footer() {
             </a>
             <a href={CONTACT.instagram.url} target="_blank" rel="noreferrer">
               <Icon name="instagram" size={16} /> {CONTACT.instagram.handle}
+              <span className="visually-hidden"> (Instagram, abre em nova aba)</span>
             </a>
           </div>
 
@@ -38,12 +39,13 @@ export default function Footer() {
             <h2>Inscrição</h2>
             <a href={LUMA.eventUrl} target="_blank" rel="noreferrer">
               Candidate-se no Luma <Icon name="arrowUpRight" size={16} />
+              <span className="visually-hidden"> (abre em nova aba)</span>
             </a>
           </div>
         </div>
 
         <div className="footer__bottom">
-          <p>© 2026 Converge Challenge · Ligia (CIn-UFPE), TAIL (UFPB) &amp; Canastra Ventures.</p>
+          <p>© 2026 Converge Challenge · Ligia (CIn-UFPE) &amp; Canastra Ventures.</p>
           <a href="#top" className="footer__top-link">
             Voltar ao topo <Icon name="arrowDown" size={14} style={{ transform: 'rotate(180deg)' }} />
           </a>

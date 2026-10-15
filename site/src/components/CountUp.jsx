@@ -25,7 +25,8 @@ export default function CountUp({ value, duration = 1600 }) {
   }, [inView, value, duration]);
 
   return (
-    <span ref={ref} aria-label={value}>
+    <span ref={ref}>
+      <span className="visually-hidden">{value}</span>
       <span aria-hidden="true">{shown}</span>
     </span>
   );

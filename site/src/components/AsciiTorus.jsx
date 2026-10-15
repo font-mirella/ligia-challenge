@@ -4,6 +4,9 @@ import { prefersReducedMotion } from '../hooks/useReducedMotion.js';
 const RAMP = '.,:-=+*##%@';
 const BUCKETS = RAMP.length;
 const TAU = Math.PI * 2;
+const R1 = 1; // tube radius
+const R2 = 2.1; // ring radius
+const K2 = 6.5; // viewer distance
 
 // Rotating torus drawn with ASCII characters (the classic donut.c renderer),
 // echoing the #*+= artwork on the deck cover. It leans toward the pointer,
@@ -25,6 +28,10 @@ export default function AsciiTorus({ className }) {
     let rows = 0;
     let zbuf = new Float32Array(0);
     let lum = new Float32Array(0);
+    let cosP = new Float32Array(0);
+    let sinP = new Float32Array(0);
+    let cosT = new Float32Array(0);
+    let sinT = new Float32Array(0);
     const buckets = Array.from({ length: BUCKETS }, () => []);
 
     let A = 0.9;
@@ -59,9 +66,31 @@ export default function AsciiTorus({ className }) {
       rows = Math.ceil(H / cellH);
       zbuf = new Float32Array(cols * rows);
       lum = new Float32Array(cols * rows);
+      buildTables();
       ctx.font = `600 ${(cellW * 1.5).toFixed(1)}px 'Geist Mono Variable', ui-monospace, monospace`;
       ctx.textBaseline = 'top';
       if (reduced || !running) draw(1);
+    }
+
+    // Sample the surface finely enough that neighbouring points land in
+    // neighbouring cells even on the nearest side, so a big torus has no holes.
+    // Small canvases keep the classic steps (0.016 / 0.055 rad).
+    function buildTables() {
+      const reach = (Math.min(W, H * 1.15) * 0.5 * (K2 / (R1 + R2))) / (K2 - R1 - R2);
+      const nPhi = Math.min(720, Math.max(393, Math.ceil((TAU * reach * (R1 + R2)) / cellW)));
+      const nTheta = Math.min(200, Math.max(115, Math.ceil((TAU * reach * R1) / cellW)));
+      cosP = new Float32Array(nPhi);
+      sinP = new Float32Array(nPhi);
+      cosT = new Float32Array(nTheta);
+      sinT = new Float32Array(nTheta);
+      for (let i = 0; i < nPhi; i++) {
+        cosP[i] = Math.cos((i / nPhi) * TAU);
+        sinP[i] = Math.sin((i / nPhi) * TAU);
+      }
+      for (let j = 0; j < nTheta; j++) {
+        cosT[j] = Math.cos((j / nTheta) * TAU);
+        sinT[j] = Math.sin((j / nTheta) * TAU);
+      }
     }
 
     function draw(intro) {
@@ -74,28 +103,32 @@ export default function AsciiTorus({ className }) {
       const sA = Math.sin(a);
       const cB = Math.cos(b);
       const sB = Math.sin(b);
-      const R1 = 1;
-      const R2 = 2.1;
-      const K2 = 6.5;
       const scale = Math.min(W, H * 1.15) * 0.5 * (K2 / (R1 + R2)) * (0.6 + 0.4 * intro);
       const cx = W / 2;
       const cy = H / 2;
+      const sAsB = sA * sB;
+      const sAcB = sA * cB;
+      const nPhi = cosP.length;
 
-      for (let theta = 0; theta < TAU; theta += 0.055) {
-        const ct = Math.cos(theta);
-        const st = Math.sin(theta);
-        for (let phi = 0; phi < TAU; phi += 0.016) {
-          const cp = Math.cos(phi);
-          const sp = Math.sin(phi);
-          const ox = R2 + R1 * ct;
-          const oy = R1 * st;
-          const x = ox * (cB * cp + sA * sB * sp) - oy * cA * sB;
-          const y = ox * (sB * cp - sA * cB * sp) + oy * cA * cB;
-          const ooz = 1 / (K2 + cA * ox * sp + oy * sA);
+      for (let j = 0; j < cosT.length; j++) {
+        const ct = cosT[j];
+        const st = sinT[j];
+        const ox = R2 + R1 * ct;
+        const oy = R1 * st;
+        const x0 = -oy * cA * sB;
+        const y0 = oy * cA * cB;
+        const z0 = K2 + oy * sA;
+        const l0 = -sA * st + cB * cA * st;
+        for (let i = 0; i < nPhi; i++) {
+          const cp = cosP[i];
+          const sp = sinP[i];
+          const x = ox * (cB * cp + sAsB * sp) + x0;
+          const y = ox * (sB * cp - sAcB * sp) + y0;
+          const ooz = 1 / (z0 + cA * ox * sp);
           const col = ((cx + scale * ooz * x) / cellW) | 0;
           const row = ((cy - scale * ooz * y) / cellH) | 0;
           if (col < 0 || col >= cols || row < 0 || row >= rows) continue;
-          const L = cp * ct * sB - cA * ct * sp - sA * st + cB * (cA * st - sA * ct * sp);
+          const L = cp * ct * sB - cA * ct * sp + l0 - sAcB * ct * sp;
           const idx = row * cols + col;
           if (ooz > zbuf[idx]) {
             zbuf[idx] = ooz;

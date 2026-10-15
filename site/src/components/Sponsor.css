@@ -3,6 +3,11 @@
   color: #fff;
 }
 
+/* The global orange focus ring disappears on the orange field. */
+.sponsor :focus-visible {
+  outline-color: var(--navy-900);
+}
+
 .sponsor__inner {
   position: relative;
   display: grid;
@@ -73,6 +78,11 @@
 
 .sponsor__mail:hover {
   border-color: #fff;
+}
+
+.sponsor__side {
+  display: grid;
+  gap: clamp(32px, 4vw, 48px);
 }
 
 .sponsor__tiers {
@@ -154,6 +164,42 @@
   text-decoration-color: var(--orange);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+}
+
+/* Long-term vision: closes the pitch as a statement, not another perk. */
+.sponsor__vision {
+  display: grid;
+  gap: 16px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.sponsor__vision-tag {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--navy-900);
+}
+
+.sponsor__vision-text {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  color: #fff;
+  text-wrap: pretty;
+}
+
+.sponsor__vision-text em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.14em;
+  letter-spacing: -0.005em;
+  color: var(--navy-900);
 }
 
 @media (max-width: 1080px) {

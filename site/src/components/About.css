@@ -15,15 +15,6 @@
   gap: 28px;
 }
 
-.about__mission {
-  padding-top: 28px;
-  border-top: 1px solid var(--line);
-  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
-  line-height: 1.75;
-  color: var(--ink);
-  max-width: 54ch;
-}
-
 .about__words {
   display: grid;
   gap: 4px;

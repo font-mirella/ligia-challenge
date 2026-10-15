@@ -7,7 +7,7 @@ const LINE_PAUSE = 260;
 
 // A fake terminal that types out an agent run line by line.
 // `onDone` fires a few seconds after the last line, so the parent can rotate.
-export default function Terminal({ title, lines, play, onDone }) {
+export default function Terminal({ title, label = title, lines, play, onDone }) {
   const reduced = prefersReducedMotion();
   const [line, setLine] = useState(reduced ? lines.length : 0);
   const [chars, setChars] = useState(0);
@@ -37,7 +37,7 @@ export default function Terminal({ title, lines, play, onDone }) {
   }, [play, reduced, line, chars, lines, onDone]);
 
   return (
-    <div className="term" role="img" aria-label={`Exemplo de execução de agente: ${title}`}>
+    <div className="term" role="img" aria-label={`Exemplo de execução de agente: ${label}`}>
       <div className="term__bar">
         <span className="term__dots">
           <i />

@@ -1,8 +1,8 @@
 import { EVENT } from '../config.js';
 import AsciiTorus from './AsciiTorus.jsx';
 import Icon from './Icon.jsx';
-import ScrambleText from './ScrambleText.jsx';
-import { Logo, ORGANIZERS, SUPPORTERS } from './Logos.jsx';
+import { Logo, ORGANIZERS, PARTNERS, SUPPORTERS } from './Logos.jsx';
+import logo from '../assets/logos/converge-logo.svg';
 import './Hero.css';
 
 export default function Hero() {
@@ -11,16 +11,22 @@ export default function Hero() {
       <div className="hero__bg" aria-hidden="true">
         <div className="hero__grid" />
       </div>
-      <AsciiTorus className="hero__torus" />
+      {/* The torus may drift behind the nav, the title and the logo strip: the mask
+          on .hero__art dims it under copy, and the nav pill and the strip are frosted glass. */}
+      <div className="hero__art" aria-hidden="true">
+        <AsciiTorus className="hero__torus" />
+      </div>
 
       <div className="container hero__inner">
         <p className="hero__badge rise" style={{ '--i': 0 }}>
-          <span className="hero__dot" /> Inscrições abertas · {EVENT.builders}&nbsp;builders
+          <span className="hero__dot" />
+          <span>Inscrições de {EVENT.applications}</span>
+          <span aria-hidden="true">·</span>
+          <span>{EVENT.builders} participantes</span>
         </p>
 
-        <h1 id="hero-title" className="hero__title">
-          <ScrambleText text="Converge" className="hero__line rise" delay={250} translate="no" />
-          <ScrambleText text="Challenge" className="hero__line rise" delay={420} translate="no" />
+        <h1 id="hero-title" className="hero__title rise" style={{ '--i': 1 }}>
+          <img src={logo} alt="Converge Challenge, powered by Tako" width="1080" height="503" />
         </h1>
 
         <p className="hero__sub rise" style={{ '--i': 3 }}>
@@ -49,18 +55,25 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="container hero__logos rise" style={{ '--i': 8 }}>
-        <div className="hero__logo-group">
-          <span className="hero__logo-label">Organizado por</span>
-          {ORGANIZERS.map((o) => (
-            <Logo key={o.id} logo={o} className="logo--mono" />
-          ))}
-        </div>
-        <div className="hero__logo-group">
-          <span className="hero__logo-label">Apoiado por</span>
-          {SUPPORTERS.map((s) => (
-            <Logo key={s.id} logo={s} className="logo--mono" />
-          ))}
+      {/* Organizers lead in colour; partners and supporters share one quiet, smaller row. */}
+      <div className="hero__strip rise" style={{ '--i': 8 }}>
+        <div className="container hero__logos">
+          <div className="hero__logo-group hero__logo-group--lead">
+            <span className="hero__logo-label">Organizado por</span>
+            <div className="hero__logo-list">
+              {ORGANIZERS.map((o) => (
+                <Logo key={o.id} logo={o} />
+              ))}
+            </div>
+          </div>
+          <div className="hero__logo-group hero__logo-group--quiet">
+            <span className="hero__logo-label">Parceiros e apoio</span>
+            <div className="hero__logo-list">
+              {[...PARTNERS, ...SUPPORTERS].map((l) => (
+                <Logo key={l.id} logo={l} className="logo--mono" />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
