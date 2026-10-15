@@ -31,7 +31,7 @@ export const LUMA = {
 };
 
 export const CONTACT = {
-  email: 'ligia@cin.ufpe.br',
+  email: 'convergechallenge@cin.ufpe.br',
   instagram: { handle: '@ligia.ufpe', url: 'https://www.instagram.com/ligia.ufpe/' },
 };
 
