@@ -84,7 +84,9 @@ export default function Challenge() {
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
             Não buscamos mais um chatbot ou uma ferramenta estática. Queremos <strong>soluções agênticas</strong> que
             se conectam a processos reais e tornam operações <strong>eficientes</strong>. AI agents não apenas
-            respondem prompts: eles <strong>planejam, executam e iteram</strong> sozinhos.
+            respondem prompts: eles <strong>planejam, executam e iteram</strong> sozinhos. Não há vertical nem problema
+            definido: o único requisito é que um agente (ou sistema multiagente) entregue <strong>trabalho de verdade</strong>,
+            com potencial de virar uma startup.
           </p>
         </div>
 

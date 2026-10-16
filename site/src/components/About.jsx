@@ -7,7 +7,7 @@ import './About.css';
 
 const STATS = [
   { value: EVENT.builders, label: 'Participantes selecionados' },
-  { value: '8–16h', label: 'De hacking intensivo' },
+  { value: '16h', label: 'De hacking intensivo' },
   { value: '2', label: `Dias no ${EVENT.venue}` },
   { value: '1', label: 'Demo Day com pitches ao vivo' },
 ];

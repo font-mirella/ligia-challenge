@@ -23,8 +23,8 @@ export const POWERED_BY = {
   url: 'https://tako.ai/',
   blurb: (
     <>
-      Uma startup brasileira que usa <strong>agentes de IA</strong> para operar a{' '}
-      <strong>folha de pagamento e o RH</strong> das empresas, da admissão ao desligamento.
+      A Tako está repensando como as empresas <strong>recrutam</strong> no Brasil, com{' '}
+      <strong>agentes de IA</strong> como a Nara, sua recrutadora por voz.
     </>
   ),
 };

@@ -46,7 +46,7 @@ export default function Partners() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow" data-reveal>
-            06 / Parceiros
+            08 / Parceiros
           </p>
           <h2 id="partners-title" className="title" data-reveal style={{ '--d': '80ms' }}>
             Quem está <em>conosco</em>.

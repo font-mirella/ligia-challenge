@@ -14,7 +14,7 @@ export default function Register() {
       <div className="container register__grid">
         <div className="register__text">
           <p className="eyebrow" data-reveal>
-            09 / Inscrição
+            10 / Inscrição
           </p>
           <h2 id="register-title" className="register__title" data-reveal style={{ '--d': '80ms' }}>
             Pronto para <em>convergir</em>?
@@ -60,6 +60,12 @@ export default function Register() {
             Abrir o evento no Luma <Icon name="arrowUpRight" size={16} />
             <span className="visually-hidden"> (abre em nova aba)</span>
           </a>
+
+          <p className="register__consent">
+            Ao se inscrever, você concorda em compartilhar seus dados com a Ligia (CIn-UFPE), a Canastra Ventures, a
+            Tako e os demais patrocinadores e parceiros do evento, e autoriza o envio de novidades, anúncios e outras
+            comunicações dessas organizações.
+          </p>
         </div>
 
         <div className="register__embed" data-reveal="scale" style={{ '--d': '120ms' }}>

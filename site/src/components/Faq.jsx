@@ -6,7 +6,7 @@ import './Faq.css';
 const QUESTIONS = [
   {
     q: 'Quem pode se inscrever?',
-    a: 'Estudantes e profissionais de três áreas que querem construir com AI agents: tecnologia (desenvolvimento, engenharia e dados), empreendedorismo (founders e empreendedores) e design. O evento reúne talentos do Nordeste.',
+    a: 'Estudantes e profissionais de três áreas que querem construir com AI agents: tecnologia (desenvolvimento, engenharia e dados), empreendedorismo (founders e empreendedores) e design. A seleção procura quem já construiu algo real, como agentes, ferramentas ou side projects de IA. O evento reúne talentos do Nordeste.',
   },
   {
     q: 'Quanto custa?',
@@ -14,19 +14,19 @@ const QUESTIONS = [
   },
   {
     q: 'Quando e onde acontece?',
-    a: `Presencialmente, no ${EVENT.venueAddress}, em ${EVENT.city}, nos dias ${EVENT.dates}, das ${EVENT.hours} nos dois dias.`,
+    a: `Presencialmente, no ${EVENT.venueAddress}, em ${EVENT.city}: sábado, 7 de novembro, das 08h30 às 17h, e domingo, 8 de novembro, das 08h30 às 17h30. A presença nos dois dias é obrigatória para os aprovados.`,
   },
   {
     q: 'Como funciona a seleção?',
-    a: `As inscrições vão de ${EVENT.applications}, pelo formulário no Luma. Os ${EVENT.builders} participantes do evento são selecionados a partir dessas inscrições.`,
+    a: `As inscrições vão de ${EVENT.applications}, pelo formulário no Luma. Os ${EVENT.builders} participantes são selecionados a partir delas, com a mesma régua para quem se inscreve sozinho ou em time: procuramos quem já construiu algo real. O resultado sai até ${EVENT.results}, e os aprovados entram no grupo de WhatsApp do hackathon.`,
   },
   {
     q: 'Preciso ter um time?',
-    a: 'Não. Você pode se inscrever sozinho ou com seu time já formado, com até 5 pessoas. Quem vier sem time forma um na abertura do evento.',
+    a: 'Não. Você pode se inscrever sozinho ou em time de 2 a 4 pessoas. No time, cada integrante faz a própria inscrição e informa o nome do time no formulário. Quem for aprovado sozinho pode formar um time no check-in.',
   },
   {
     q: 'O que devo levar?',
-    a: 'Seu notebook e carregador. O local não tem computadores disponíveis para os participantes.',
+    a: 'Seu notebook, carregador e adaptadores: não há computadores no local, mas há tomadas. Chegue com o setup pronto (repositório configurado, chaves de API ativas e ambiente de desenvolvimento instalado e testado), porque não haverá tempo de setup no dia. Os aprovados recebem um guia de preparação na semana do evento.',
   },
   {
     q: 'O que vamos construir?',
@@ -34,7 +34,7 @@ const QUESTIONS = [
   },
   {
     q: 'O que os participantes ganham?',
-    a: 'Mentoria de profissionais do mercado, networking com participantes e parceiros, infraestrutura para construir seu projeto, um Demo Day ao vivo diante de um júri e prêmios para os melhores projetos.',
+    a: 'Mentoria de profissionais do mercado, US$ 25 em créditos de inferência da Featherless, networking com participantes e parceiros, um Demo Day ao vivo diante de um júri e prêmios para os três melhores projetos, com mais de US$ 20 mil em prêmios combinados.',
   },
   {
     q: 'Quero patrocinar, mentorar ou ser parceiro. Com quem falo?',
@@ -70,7 +70,7 @@ export default function Faq() {
       <div className="container faq__grid">
         <div className="section-head faq__head">
           <p className="eyebrow" data-reveal>
-            08 / FAQ
+            09 / FAQ
           </p>
           <h2 id="faq-title" className="title" data-reveal style={{ '--d': '80ms' }}>
             Perguntas, <em>respondidas</em>.

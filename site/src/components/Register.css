@@ -134,3 +134,11 @@
     height: 770px;
   }
 }
+
+.register__consent {
+  max-width: 62ch;
+  margin-top: 24px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-mute);
+}

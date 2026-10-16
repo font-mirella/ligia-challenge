@@ -48,7 +48,8 @@ const PERKS = [
   'Infraestrutura para construir seu projeto',
   'Palco para apresentar sua solução ao vivo',
   'Avaliação por um júri de especialistas',
-  'Prêmios para os melhores projetos',
+  'Prêmios para os três melhores projetos',
+  'US$ 25 em créditos de inferência da Featherless',
 ];
 
 export default function Audience() {
@@ -65,7 +66,8 @@ export default function Audience() {
           <p className="lede" data-reveal style={{ '--d': '160ms' }}>
             Estudantes e profissionais do <strong>Nordeste</strong> em <strong>tecnologia</strong>,{' '}
             <strong>empreendedorismo</strong> e <strong>design</strong> que querem passar um fim de semana criando AI
-            agents com quem constrói como eles. Os participantes são selecionados a partir das inscrições.
+            agents com quem constrói como eles. Os participantes são selecionados a partir das inscrições, e a régua é
+            uma só: procuramos quem <strong>já construiu algo real</strong>, como agentes, ferramentas ou side projects de IA.
           </p>
         </div>
 

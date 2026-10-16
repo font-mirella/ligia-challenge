@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { EVENT } from '../config.js';
 import './Schedule.css';
 
-// Programação preliminar: a jornada de um dia do deck, distribuída em dois dias.
+// Programação oficial, a mesma da página do evento no Luma.
 const DAYS = [
   {
     weekday: 'Sáb',
@@ -12,12 +12,9 @@ const DAYS = [
     label: 'Sábado, 7 de novembro de 2026',
     theme: 'Abertura & construção',
     items: [
-      ['08:30', 'Abertura das portas & check-in', 'Credenciamento e entrega de crachás para todos os participantes.'],
-      ['09:00', 'Abertura & briefing do desafio', 'Apresentação final do desafio e das regras do hackathon.'],
-      ['10:00', 'Início do hacking', 'Os times começam oficialmente a construir seus projetos.'],
-      ['13:00', 'Almoço & networking', 'Pausa para almoço e networking com participantes e parceiros.'],
-      ['14:00', 'Rodadas de mentoria', 'Mentores ajudam os times a desenvolver e refinar suas soluções.'],
-      ['17:00', 'Fim do primeiro dia', 'Portas fecham. Descanse, amanhã tem mais construção.'],
+      ['08:30', 'Credenciamento & abertura', 'Check-in dos participantes e abertura oficial do evento.'],
+      ['10:00', 'Início do hacking', 'Os times começam a construir, com almoço e mentorias ao longo do dia.'],
+      ['17:00', 'Encerramento do 1º dia', 'Portas fecham. Amanhã tem mais construção.'],
     ],
   },
   {
@@ -28,11 +25,10 @@ const DAYS = [
     label: 'Domingo, 8 de novembro de 2026',
     theme: 'Finalizar & Demo Day',
     items: [
-      ['09:00', 'Retomada do hacking', 'De volta à construção para a reta final.'],
-      ['13:00', 'Almoço & networking', 'Recarregue as energias e conheça os parceiros antes das demos.'],
-      ['14:00', 'Rodada final de mentoria', 'Último feedback dos mentores antes de apresentar.'],
+      ['08:30', 'Retomada do hacking', 'De volta à construção para a reta final.'],
+      ['13:00', 'Prazo de submissão', 'Último horário para enviar os projetos.'],
       ['16:00', 'Demo Day', 'Os times apresentam ao vivo o que construíram para o júri.'],
-      ['17:00', 'Premiação & encerramento', 'Anúncio dos vencedores e encerramento oficial do evento.'],
+      ['17:30', 'Premiação & encerramento', 'Anúncio dos vencedores e encerramento oficial do evento.'],
     ],
   },
 ];
@@ -77,7 +73,7 @@ export default function Schedule() {
             Dois dias para <em>criar</em>.
           </h2>
           <p className="schedule__note" data-reveal style={{ '--d': '160ms' }}>
-            Programação preliminar, sujeita a alterações · {EVENT.venue}, {EVENT.city}
+            {EVENT.venue}, {EVENT.city} · <strong>Presença obrigatória nos dois dias</strong> para todos os aprovados
           </p>
         </div>
 

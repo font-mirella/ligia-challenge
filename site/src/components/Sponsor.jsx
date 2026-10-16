@@ -44,7 +44,7 @@ export default function Sponsor() {
       <div className="container sponsor__inner">
         <div className="sponsor__intro">
           <p className="eyebrow sponsor__eyebrow" data-reveal>
-            07 / Patrocínio
+            11 / Patrocínio
           </p>
           <h2 id="sponsor-title" className="title" data-reveal style={{ '--d': '80ms' }}>
             Coloque sua marca onde <em>AI agents</em> são construídos.

@@ -3,10 +3,10 @@
 export const EVENT = {
   name: 'Converge Challenge',
   // Abertura e encerramento, horário de Recife (UTC-3, sem horário de verão).
-  start: '2026-11-07T09:00:00-03:00',
-  end: '2026-11-08T17:00:00-03:00',
+  start: '2026-11-07T08:30:00-03:00',
+  end: '2026-11-08T17:30:00-03:00',
   dates: '7 e 8 de novembro de 2026',
-  hours: '09h às 17h',
+  hours: '08h30 às 17h30',
   // Forma curta, para linhas de meta (Hero, Programação, Sobre).
   venue: 'Porto Digital (Cais do Apolo)',
   // Forma com endereço, onde há espaço (Inscrição, FAQ, rodapé).
@@ -16,6 +16,7 @@ export const EVENT = {
   builders: '100',
   // Janela de inscrições no Luma (2026).
   applications: '17 a 30 de outubro',
+  results: '31 de outubro',
   // A mesma janela em ISO, para os dados estruturados (JSON-LD) do <head>.
   applicationsFrom: '2026-10-17',
   applicationsTo: '2026-10-30',
@@ -42,7 +43,8 @@ export const NAV_LINKS = [
   { id: 'about', label: 'Sobre' },
   { id: 'challenge', label: 'Desafio' },
   { id: 'schedule', label: 'Programação' },
+  { id: 'prizes', label: 'Prêmios' },
   { id: 'partners', label: 'Parceiros' },
-  { id: 'sponsor', label: 'Patrocínio' },
   { id: 'faq', label: 'FAQ' },
+  { id: 'sponsor', label: 'Patrocínio' },
 ];

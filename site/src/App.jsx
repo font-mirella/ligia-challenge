@@ -7,6 +7,8 @@ import Challenge from './components/Challenge.jsx';
 import Audience from './components/Audience.jsx';
 import Goals from './components/Goals.jsx';
 import Schedule from './components/Schedule.jsx';
+import Prizes from './components/Prizes.jsx';
+import Mentors from './components/Mentors.jsx';
 import Partners from './components/Partners.jsx';
 import Sponsor from './components/Sponsor.jsx';
 import Faq from './components/Faq.jsx';
@@ -30,10 +32,12 @@ export default function App() {
         <Audience />
         <Goals />
         <Schedule />
+        <Prizes />
+        <Mentors />
         <Partners />
-        <Sponsor />
         <Faq />
         <Register />
+        <Sponsor />
       </main>
       <Footer />
     </>
