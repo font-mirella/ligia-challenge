@@ -5,7 +5,7 @@ do Nordeste: **https://convergechallenge.cin.ufpe.br**
 
 - **Quando:** 7 e 8 de novembro de 2026, das 09h às 17h
 - **Onde:** Porto Digital (Cais do Apolo, 222), Recife, PE
-- **Quem:** 100 participantes, estudantes e profissionais de tecnologia,
+- **Quem:** 80 participantes, estudantes e profissionais de tecnologia,
   empreendedorismo e design, selecionados a partir das inscrições
   (17 a 30 de outubro, pelo Luma). O evento é gratuito.
 - **Organização:** Ligia (CIn-UFPE) e Canastra Ventures

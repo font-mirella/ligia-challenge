@@ -13,7 +13,7 @@ export const EVENT = {
   venueAddress: 'Porto Digital (Cais do Apolo, 222)',
   city: 'Recife, PE',
   // Número puro: o Hero renderiza "{builders} participantes".
-  builders: '100',
+  builders: '80',
   // Janela de inscrições no Luma (2026).
   applications: '17 a 30 de outubro',
   results: '31 de outubro',
