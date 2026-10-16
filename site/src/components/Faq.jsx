@@ -36,18 +36,19 @@ const QUESTIONS = [
     q: 'O que os participantes ganham?',
     a: 'Mentoria de profissionais do mercado, US$ 25 em créditos de inferência da Featherless, networking com participantes e parceiros, um Demo Day ao vivo diante de um júri e prêmios para os três melhores projetos, com mais de US$ 20 mil em prêmios combinados.',
   },
-  {
-    q: 'Quero patrocinar, mentorar ou ser parceiro. Com quem falo?',
-    a: (
-      <>
-        Escreva para{' '}
-        <a href={`mailto:${CONTACT.email}`} className="faq__link">
-          {CONTACT.email}
-        </a>{' '}
-        e retornamos com as opções de patrocínio.
-      </>
-    ),
-  },
+  // Hidden along with the sponsor section.
+  // {
+  //   q: 'Quero patrocinar, mentorar ou ser parceiro. Com quem falo?',
+  //   a: (
+  //     <>
+  //       Escreva para{' '}
+  //       <a href={`mailto:${CONTACT.email}`} className="faq__link">
+  //         {CONTACT.email}
+  //       </a>{' '}
+  //       e retornamos com as opções de patrocínio.
+  //     </>
+  //   ),
+  // },
 ];
 
 export default function Faq() {

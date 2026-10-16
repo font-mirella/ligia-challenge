@@ -46,5 +46,6 @@ export const NAV_LINKS = [
   { id: 'prizes', label: 'Prêmios' },
   { id: 'partners', label: 'Parceiros' },
   { id: 'faq', label: 'FAQ' },
-  { id: 'sponsor', label: 'Patrocínio' },
+  // Seção de patrocínio oculta por enquanto.
+  // { id: 'sponsor', label: 'Patrocínio' },
 ];

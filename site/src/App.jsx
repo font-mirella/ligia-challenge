@@ -10,7 +10,8 @@ import Schedule from './components/Schedule.jsx';
 import Prizes from './components/Prizes.jsx';
 import Mentors from './components/Mentors.jsx';
 import Partners from './components/Partners.jsx';
-import Sponsor from './components/Sponsor.jsx';
+// Sponsor section hidden for now; uncomment here and in <main> to bring it back.
+// import Sponsor from './components/Sponsor.jsx';
 import Faq from './components/Faq.jsx';
 import Register from './components/Register.jsx';
 import Footer from './components/Footer.jsx';
@@ -37,7 +38,7 @@ export default function App() {
         <Partners />
         <Faq />
         <Register />
-        <Sponsor />
+        {/* <Sponsor /> */}
       </main>
       <Footer />
     </>

@@ -310,6 +310,11 @@
     width: 150vw;
   }
 
+  /* full-width buttons, even when there is only one */
+  .hero__ctas {
+    align-self: stretch;
+  }
+
   .hero__ctas .btn {
     flex: 1 1 auto;
   }

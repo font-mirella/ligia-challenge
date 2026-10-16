@@ -52,9 +52,11 @@ export default function Hero() {
           <a href="#register" className="btn">
             Inscreva-se <Icon name="arrow" size={18} className="arrow" />
           </a>
+          {/* Sponsor section hidden for now.
           <a href="#sponsor" className="btn btn--ghost">
             Seja patrocinador
           </a>
+          */}
         </div>
       </div>
 

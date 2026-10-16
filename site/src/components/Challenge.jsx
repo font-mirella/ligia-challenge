@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import useInView from '../hooks/useInView.js';
 import Terminal from './Terminal.jsx';
-import Icon from './Icon.jsx';
+// Only the hidden sponsor note below uses it.
+// import Icon from './Icon.jsx';
 import './Challenge.css';
 
 // Exemplos de problemas a partir do deck. Os logs do terminal são ilustrativos.
@@ -112,6 +113,7 @@ export default function Challenge() {
           ))}
         </ul>
 
+        {/* Sponsor section hidden for now.
         <a href="#sponsor" className="challenge__note" data-reveal>
           <div className="challenge__note-content">
             <span className="challenge__note-badge">
@@ -125,6 +127,7 @@ export default function Challenge() {
             Saiba mais <Icon name="arrow" size={16} className="arrow" />
           </span>
         </a>
+        */}
       </div>
     </section>
   );
