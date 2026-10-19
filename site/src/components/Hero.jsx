@@ -39,10 +39,15 @@ export default function Hero() {
             <Icon name="clock" size={18} /> {EVENT.hours}
           </li>
           <li>
+            <Icon name="check" size={18} /> Gratuito
+          </li>
+          {/* Forces the second row: place and seats. */}
+          <li className="hero__meta-break" aria-hidden="true" />
+          <li className="hero__meta-venue">
             <Icon name="pin" size={18} /> {EVENT.venue} · {EVENT.city}
           </li>
           <li>
-            <Icon name="check" size={18} /> Gratuito
+            <Icon name="users" size={18} /> Vagas limitadas
           </li>
         </ul>
 
