@@ -21,8 +21,6 @@ export default function Hero() {
         <p className="hero__badge rise" style={{ '--i': 0 }}>
           <span className="hero__dot" />
           <span>Inscrições de {EVENT.applications}</span>
-          <span aria-hidden="true">·</span>
-          <span>{EVENT.builders} participantes</span>
         </p>
 
         <h1 id="hero-title" className="hero__title rise" style={{ '--i': 1 }}>
